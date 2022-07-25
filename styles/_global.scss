@@ -1,13 +1,15 @@
 $max-width: 1440px;
-$sidebar-width : 280px;
-$md-width : 680px;
-$border-gray:rgba(0, 0, 0, 0.12);
-$color-primary:rgba(0,0,0,.56);
+$sidebar-width: 280px;
+$md-width: 680px;
+$border-gray: rgba(0, 0, 0, 0.12);
+$color-primary: rgba(0, 0, 0, 0.56);
 $font-size-filter: 0.75em;
 
 :root {
   display: block !important;
-  font-family: IRANSans,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
+  font-family: IRANSans, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji,
+    Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   line-height: 1.2em;
 }
 
@@ -29,12 +31,92 @@ $font-size-filter: 0.75em;
   width: 100%;
   display: flex;
   padding: 8px;
-
 }
 
 @media screen and (max-width: $md-width) {
-  .container{
-     flex-direction:column;
+  .container {
+    flex-direction: column;
   }
- }
+}
 
+.contributors-visible {
+  .contributor::after {
+    display: flex;
+  }
+
+}
+
+// Contributors Toggle
+.contributor {
+  position: relative;
+  &::after {
+    display: none; // remove when contributors is not visible
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    position: absolute;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    background: #C04848;  /* fallback for old browsers */
+    font-weight: bold;
+    font-size: 40px;
+    background: linear-gradient(rgb(72,0,72,0.5), rgb(192,72,72,0.5));
+  }
+}
+
+.contributor--sepehr {
+  &::after {
+    content: "Sepehr";
+    background: linear-gradient(rgb(72,0,72,0.5), rgb(192,72,72,0.5));
+  }
+}
+
+.contributor--mahdi {
+  &::after {
+    content: "Mahdi";
+    background: linear-gradient(0deg, rgba(34,193,195,0.5) 0%, rgba(253,187,45,0.5) 100%);
+  }
+}
+
+.contributor--sara {
+  &::after {
+    content: "Sara";
+    font-size: 100px;
+    background: radial-gradient(circle, rgba(63,94,251,0.5) 0%, rgba(252,70,107,0.5) 100%);
+  }
+}
+
+.contributor--arsalan {
+  &::after {
+    content: "Arsalan";
+    background: linear-gradient(349deg, rgba(131,58,180,0.5) 0%, rgba(253,29,29,0.5) 50%, rgba(252,176,69,0.5) 100%);
+  }
+}
+
+.contributor--milad {
+  &::after {
+    content: "Milad";
+    background: radial-gradient(circle, rgba(238,174,202,0.5) 0%, rgba(148,187,233,0.5) 100%);
+  }
+}
+
+.contributors-toggle {
+  position: fixed;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  bottom: 40px;
+  left: 40px;
+  padding: 20px;
+  background: linear-gradient(rgb(72,0,72,0.5), rgb(192,72,72,0.5));
+  &:active {
+    -webkit-box-shadow: inset 5px 5px 10px #000;
+      -moz-box-shadow: inset 5px 5px 10px #000;
+            box-shadow: inset 5px 5px 10px #000;
+    outline: none;
+  }
+}
