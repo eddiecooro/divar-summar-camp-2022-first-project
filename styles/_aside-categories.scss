@@ -1,0 +1,68 @@
+@use 'global';
+
+.sidebar{
+    width: 280px;
+    height: 884px;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+
+
+.categories {
+    height:440px;
+    width:252px;
+    display:flex;
+    flex-direction:column;
+    border-bottom: 1px solid global.$border-gray;
+
+&__container{
+    padding-bottom: 0.5rem;
+}
+
+&__title{
+    font-size:0.75em;
+    padding: 8px 0px;
+}
+
+
+&__item{
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+&__header{
+    color:global.$color-primary;
+    padding: 8px 0 ;
+    line-height: 2px;
+    font-size:0.875em;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    &:hover{
+        color: black;
+    }
+}
+
+&__icon{
+    width: 20px;
+    height:20px;
+    margin-left:8px;
+    font-size: 1.25em;
+ 
+}
+}
+
+@media only screen and (max-width: global.$md-width) {
+   
+    position:static;
+    left:0;
+    width:100%;
+    box-sizing:border-box;
+    padding:16px;
+ 
+ .categories{
+    width:100%;
+ }
+}
+}

@@ -1,0 +1,52 @@
+@font-face {
+  font-display: swap;
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 700;
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Bold.f18db7b4.eot);
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Bold.94bdf556.woff2)
+      format('woff2'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Bold.dd12fb6a.woff)
+      format('woff'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Bold.e65c9d52.ttf)
+      format('truetype');
+}
+@font-face {
+  font-display: swap;
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 500;
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Medium.d1f537d1.eot);
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Medium.9f338149.woff2)
+      format('woff2'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Medium.2d28b58d.woff)
+      format('woff'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Medium.dde1bbb6.ttf)
+      format('truetype');
+}
+@font-face {
+  font-display: swap;
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb.432a2b2d.eot);
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb.cdb118d6.woff2)
+      format('woff2'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb.9ffdcda0.woff)
+      format('woff'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb.ae01de69.ttf)
+      format('truetype');
+}
+@font-face {
+  font-display: swap;
+  font-family: IRANSans;
+  font-style: normal;
+  font-weight: 300;
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Light.b9db61ce.eot);
+  src: url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Light.b5815f24.woff2)
+      format('woff2'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Light.b35266cb.woff)
+      format('woff'),
+    url(https://s100.divarcdn.com/statics/2022/07/IRANSansWeb_Light.f1c0e72c.ttf)
+      format('truetype');
+}

@@ -1,0 +1,135 @@
+.temporary-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.megamenu-wrapper{
+  position:relative;
+  z-index: 2;
+
+  &:not(:hover) > .megamenu{
+    display: none;
+  }
+}
+.megamenu-button{
+    position: relative;
+    background-color: white;
+    border-radius: 5px;
+    width: 100px;
+    height: 45px;
+    &:hover{
+      background-color:rgba(0, 0, 0, 0.04);
+    }
+    &:hover + .megamenu{
+      display:flex;
+    }
+
+}
+.megamenu {
+  position: absolute;
+  width: 70vw;
+  right: 0px;
+  top: 44px;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 3px 0 #000000;
+  // font-size: 0.85rem;
+  display: flex;
+  padding: 30px;
+  padding-bottom: 60px;
+  min-height: 496px;
+  max-height: 520px;
+
+  &__aside {
+    padding-left: 15px;
+    margin-left: 15px;
+    width: 190px;
+    flex-grow: 0;
+    border-left: 1px solid lightgray;
+  }
+  &__main {
+    flex: 1;
+  }
+  &__categories {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__categories-back {
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: flex-start;
+    color: rgba(0, 0, 0, 0.56);
+  }
+  &__category {
+    width: 100%;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    &:hover{
+      background-color:rgba(0, 0, 0, 0.04);
+      transition: background-color 0.15s ease-in-out;
+    }
+  }
+  &__category-icon {
+  }
+  &__category-text {
+    color: rgba(0, 0, 0, 0.56);
+    margin-left: auto;
+    font-size: 0.75em;
+    font-weight: 400;
+    line-height: 2;
+  }
+  &__subcategories-container {
+    // height:100%;
+    flex: 1;
+    // margin:auto;
+    display: flex;
+    flex-direction: column;
+  }
+  &__subcategories {
+    height: 100%;
+    width: 100%;
+    // flex: 1;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  &__subcategory-block {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  &__block-header {
+    color: rgba(0, 0, 0, 0.87);
+
+    font-size: 0.75em;
+  }
+  &__block-links {
+    font-size: 0.75em;
+    color: rgba(0, 0, 0, 0.56);
+    display: flex;
+    flex-direction: column;
+  }
+  &__subcategory-all {
+    font-size: 0.8em;
+    flex: 0;
+    min-width: min-content;
+    text-align: left;
+    color: rgba(0, 0, 0, 0.56);
+  }
+}
+.button {
+  &__icon {
+    vertical-align: middle;
+  }
+
+  &:hover {
+    background-color: lightgray;
+  }
+}
