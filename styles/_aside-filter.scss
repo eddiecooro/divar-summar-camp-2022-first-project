@@ -7,45 +7,134 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    &__detail {
+        font-size: global.$font-size-filter;
+        width: 100%;
+        border-bottom: 1px solid global.$border-gray;
+    }
+
+    &__summary {
+        height: 57px;
+        padding: 8px 0px;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__content {
+        padding-bottom: 16px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: 8px;
+    }
+
+    &__labels {
+        display: flex;
+        flex-direction: column;
+        color: rgba(0, 0, 0, 0.56);
+        margin: 0 4px 0 16px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__button-label {
+        display: flex;
+        flex-grow: 1;
+        padding: 8px 0;
+    }
+
+    &__controls {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        justify-content: space-between;
+    }
+
+    &__icon {
+        margin-left: 8px;
+    }
+
+    &__toggle {
+        width: 100%;
+        display: flex;
+        padding: 8px 0;
+        justify-content: space-between;
+
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+    &__toggle-label {
+        flex-grow: 1;
+    }
 }
 
-.filter__detail {
-    font-size: global.$font-size-filter;
-    width: 100%;
-    border-bottom: 1px solid global.$border-gray;
+.align-left {
+    text-align: left;
 }
 
-.filter__summary {
-    height: 57px;
-    padding: 8px 0px;
+.seperator--vertical {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    margin: 7px 0;
+
+    &,
+    &::before,
+    &::after {
+        background-color: rgba(0, 0, 0, .24);
+        border-radius: 50%;
+        content: "";
+        flex-shrink: 0;
+        height: 2px;
+        width: 2px;
+    }
+
+    &::before {
+        margin-bottom: 3px;
+    }
+
+    &::after {
+        margin-top: 3px;
+    }
 }
 
-.filter__summary:hover {
-    cursor: pointer;
-}
-
-.filter__detail__content {
-    padding-bottom: 16px;
-}
-
-.filter__detail__icon {
+.icon {
     height: 20px;
     width: 20px;
-    margin-left: 8px;
 }
 
-@media only screen and (max-width: global.$md-width) {
-    .sidebar{
-        position:static;
-        left:0;
-        width:100%;
-        box-sizing:border-box;
-        padding:16px;
+.actionable-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: rgba(0, 0, 0, 0.32);
+    background-color: #fff;
+    font-size: 0.75em;
+    cursor: pointer;
+    height: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+    border-radius: 4px;
+    width: 100%;
+    padding: 4px 8px;
+    transition: 0.2s border ease-in;
+
+    &__label {
+        flex-grow: 1;
+        text-align: right;
     }
-    .filter {
-        width:100%;
+
+    &__icon {
+        margin-right: 8px;
+    }
+
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.48);
     }
 }
 
@@ -55,36 +144,36 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 8px 0 0 14px;
-}
 
-.footer__links {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
 
-.footer__links__link {
-    padding: 8px;
-    font-size: 0.875em;
-    transition: .2s color ease-in;
-}
+    &__link {
+        padding: 8px;
+        font-size: 0.875em;
+        transition: .2s color ease-in;
 
-.footer__links__link:hover {
-    color: black;
-}
+        &:hover {
+            color: #000;
+        }
+    }
 
-.footer__icons {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-    width: 100%;
-    margin-top: 1em;
-}
+    &__icons {
+        display: flex;
+        justify-content: center;
+        flex-direction: row-reverse;
+        width: 100%;
+        margin-top: 1em;
+    }
 
-.footer__icon {
-    padding: 10px;
-    width: 40px;
-    height: 40px;
+    &__icon {
+        padding: 10px;
+        width: 40px;
+        height: 40px;
+    }
 }
 
 .link_disabled {
@@ -94,6 +183,10 @@
 }
 
 @media only screen and (max-width: global.$md-width) {
+    .filter {
+        width:100%;
+    }
+
     .footer {
         width: 100%;
     }

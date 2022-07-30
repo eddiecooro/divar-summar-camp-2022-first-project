@@ -586,44 +586,68 @@
           <section class="filter contributor contributor--milad">
             <details class="filter__detail">
               <summary class="filter__summary">
-                <img class="filter__detail__icon" src="./icons/svgs/arrow-down.svg" />
+                <img class="filter__icon icon" src="./icons/svgs/arrow-down.svg" />
                 محل
               </summary>
-              <div class="filter__detail__content">
-                Lorem ipsum, dolor sit
+              <div class="filter__content">
+                <button class="filter__button actionable-button actionable-button--normal">
+                  <span class="actionable-button__label">تعیین محل</span>
+                  <img class="actionable-button__icon icon align-left" src="./icons/svgs/arrow-left.svg" />
+                </button>
               </div>
             </details>
             <details class="filter__detail">
               <summary class="filter__summary">
-                <img class="filter__detail__icon" src="./icons/svgs/arrow-down.svg" />
+                <img class="filter__icon icon" src="./icons/svgs/arrow-down.svg" />
                 قیمت
               </summary>
-              <div class="filter__detail__content">
-                Lorem ipsum, dolor sit
+              <div class="filter__content">
+                <div class="filter__labels">
+                  <label class="filter__button-label" for="min-cost-button">حداقل</label>
+                  <div class="seperator--vertical"></div>
+                  <label class="filter__button-label" for="max-cost-button">حداکثر</label>
+                </div>
+                <div class="filter__controls">
+                  <button id="min-cost-button" class="filter__button actionable-button actionable-button--normal">
+                    <span class="actionable-button__label">مثلا ۷۰۰۰۰۰۰۰ تومان</span>
+                    <img class="actionable-button__icon icon align-left" src="./icons/svgs/arrow-left.svg" />
+                  </button>
+                  <button id="max-cost-button" class="filter__button actionable-button actionable-button--normal">
+                    <span class="actionable-button__label">مثلا ۷۰۰۰۰۰۰۰ تومان</span>
+                    <img class="actionable-button__icon icon align-left" src="./icons/svgs/arrow-left.svg" />
+                  </button>
+                </div>
               </div>
             </details>
             <details class="filter__detail">
               <summary class="filter__summary">
-                <img class="filter__detail__icon" src="./icons/svgs/arrow-down.svg" />
+                <img class="filter__icon icon" src="./icons/svgs/arrow-down.svg" />
                 وضعیت آگهی
               </summary>
-              <div class="filter__detail__content">
-                Lorem ipsum, dolor sit
+              <div class="filter__content">
+                <div class="filter__toggle">
+                  <label class="filter__toggle-label" for="with-photos-only">فقط عکس‌دار</label>
+                  <input type="checkbox" id="with-photos-only" class="filter__checkbox">
+                </div>
+                <div class="filter__toggle">
+                  <label class="filter__toggle-label" for="urgents-only">فقط فوری‌ها</label>
+                  <input type="checkbox" id="urgents-only" class="filter__checkbox">
+                </div>
               </div>
             </details>
           </section>
           <footer class="footer">
             <section class="footer__links">
-              <a href="#" class="footer__links__link link_disabled">درباره دیوار</a>
-              <a href="#" class="footer__links__link link_disabled">دریافت دیوار</a>
-              <a href="#" class="footer__links__link link_disabled">بلاگ دیوار</a>
-              <a href="#" class="footer__links__link link_disabled">پشتیبانی</a>
+              <a href="#" class="footer__link link_disabled">درباره دیوار</a>
+              <a href="#" class="footer__link link_disabled">دریافت دیوار</a>
+              <a href="#" class="footer__link link_disabled">بلاگ دیوار</a>
+              <a href="#" class="footer__link link_disabled">پشتیبانی</a>
             </section>
             <section class="footer__icons">
-              <a href="#" class="link_disabled"><img class="footer__icon" src="./icons/svgs/aparat.svg" /></a>
-              <a href="#" class="link_disabled"><img class="footer__icon" src="./icons/svgs/linkedin.svg" /></a>
-              <a href="#" class="link_disabled"><img class="footer__icon" src="./icons/svgs/instagram.svg" /></a>
-              <a href="#" class="link_disabled"><img class="footer__icon" src="./icons/svgs/twitter.svg" /></a>
+              <a href="#" class="link_disabled"><img class="footer__icon icon" src="./icons/svgs/aparat.svg" /></a>
+              <a href="#" class="link_disabled"><img class="footer__icon icon" src="./icons/svgs/linkedin.svg" /></a>
+              <a href="#" class="link_disabled"><img class="footer__icon icon" src="./icons/svgs/instagram.svg" /></a>
+              <a href="#" class="link_disabled"><img class="footer__icon icon" src="./icons/svgs/twitter.svg" /></a>
             </section>
           </footer>
         </aside>
