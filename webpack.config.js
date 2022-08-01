@@ -10,6 +10,15 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    proxy: {
+      '/api/*': {
+        target: 'https://api.divar.ir',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '',
+        },
+      },
+    },
     watchFiles: ['src/**/*'],
     liveReload: true,
     port: 9000,
