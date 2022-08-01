@@ -7,10 +7,36 @@
   position:relative;
   z-index: 2;
 
-  &:not(:hover) > .megamenu{
+  & > .megamenu {
     display: none;
   }
+
+  // &:not(:hover) > .megamenu{
+  //   display: none;
+  // }
 }
+
+.megamenu-clicked {
+  display: flex !important;
+}
+
+#overlay {
+  top: 0;
+  left: 0;
+  z-index: 4;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity .2s ease-out;
+}
+
+.not-clickable {
+  display: block !important;
+  opacity: 1 !important;
+}
+
 .megamenu-button{
     position: relative;
     background-color: white;
@@ -20,9 +46,9 @@
     &:hover{
       background-color:rgba(0, 0, 0, 0.04);
     }
-    &:hover + .megamenu{
-      display:flex;
-    }
+    // &:hover + .megamenu{
+    //   display:flex;
+    // }
 
 }
 .megamenu {
