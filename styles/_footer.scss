@@ -1,0 +1,46 @@
+@use 'global';
+
+.page-footer
+{
+    @media only screen and (min-width: 910px) {
+        display: none;
+    }
+    padding: 0.8rem 0.4rem;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+    width: 100%;
+
+    &__button {
+        
+        &--vertical {
+            @media only screen and (max-width: 780px) {
+                flex-direction: column;
+            }
+            @media only screen and (min-width: 780px) {
+                align-items: center;
+            }
+        }
+    }
+}
+
+.footer-button {
+    display: flex;
+    justify-content: center;
+    // background-color: global.$button-hover-color;
+    padding: 0.2rem 0.8rem 0 0.8rem;
+    border-radius: 5px;
+    &__logo {
+        display: flex;
+        width: 100%;
+        justify-content: center;
+    }
+    &__title
+    {
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+}

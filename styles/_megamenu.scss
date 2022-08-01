@@ -15,8 +15,8 @@
     position: relative;
     background-color: white;
     border-radius: 5px;
-    width: 100px;
-    height: 45px;
+    // width: 100px;
+    // height: 45px;
     &:hover{
       background-color:rgba(0, 0, 0, 0.04);
     }
@@ -124,12 +124,14 @@
     color: rgba(0, 0, 0, 0.56);
   }
 }
-.button {
-  &__icon {
-    vertical-align: middle;
-  }
 
-  &:hover {
-    background-color: lightgray;
-  }
-}
+//moved button to global to create shared heirarchy with other buttons
+// .button {
+//   &__icon {
+//     vertical-align: middle;
+//   }
+
+//   &:hover {
+//     background-color: lightgray;
+//   }
+// }
