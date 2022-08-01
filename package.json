@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack",
-    "start": "webpack -w"
+    "start": "webpack serve"
   },
   "author": "Eddie CooRo",
   "license": "ISC",
