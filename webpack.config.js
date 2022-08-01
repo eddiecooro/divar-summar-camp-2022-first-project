@@ -18,6 +18,8 @@ module.exports = {
           '^/api': '',
         },
       },
+    logLevel: "debug"
+
     },
     watchFiles: ['src/**/*'],
     liveReload: true,
