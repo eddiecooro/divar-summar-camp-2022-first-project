@@ -10,6 +10,8 @@ module.exports = {
     static: {
       directory: path.join(__dirname, 'dist'),
     },
+    watchFiles: ['src/**/*'],
+    liveReload: true,
     port: 9000,
   },
   output: {
