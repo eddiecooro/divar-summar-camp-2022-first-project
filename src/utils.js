@@ -15,7 +15,7 @@ document.addEventListener('click', function(event){
     }
 })
 
-fetch("https://api.divar.ir/v8/web-search/1/ROOT", {
+fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US,en;q=0.9,fa;q=0.8",
@@ -37,6 +37,7 @@ fetch("https://api.divar.ir/v8/web-search/1/ROOT", {
     posts.map((el,i)=>{
         let data = el.data
         container = document.querySelector(".browse__posts")
+        let images = data.image_url
         container.innerHTML += `<a href="#post" class="post no-link-style">
         <div class="post__body">
           <h3 class="post__title">
@@ -47,8 +48,8 @@ fetch("https://api.divar.ir/v8/web-search/1/ROOT", {
         </div>
 
         <picture class="post__picture">
-          <source srcset="${data.image_url[0].src}" />
-          <img width="180px" height="100px" src="${data.image_url[0].src}" class="post__img" />
+          <source srcset="${data.image_url[0]?.src||"http://placekitten.com/150/150"}" />
+          <img width="180px" height="100px" src="${data.image_url[0]?.src||"http://placekitten.com/150/150"}" class="post__img" />
         </picture>
       </a>`
       return null
