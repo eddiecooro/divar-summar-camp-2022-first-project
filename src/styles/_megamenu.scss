@@ -3,29 +3,28 @@
   justify-content: center;
   align-items: center;
 }
-.megamenu-wrapper{
-  position:relative;
+.megamenu-wrapper {
+  position: relative;
   z-index: 2;
-
-  &:not(:hover) > .megamenu{
-    display: none;
+  // &:not(:hover) > .megamenu{
+  //   display: none;
+  // }
+}
+.megamenu-button {
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  // width: 100px;
+  // height: 45px;
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  &:hover + .megamenu {
+    display: flex;
   }
 }
-.megamenu-button{
-    position: relative;
-    background-color: white;
-    border-radius: 5px;
-    // width: 100px;
-    // height: 45px;
-    &:hover{
-      background-color:rgba(0, 0, 0, 0.04);
-    }
-    &:hover + .megamenu{
-      display:flex;
-    }
-
-}
 .megamenu {
+  visibility: hidden;
   position: absolute;
   width: 70vw;
   right: 0px;
@@ -39,7 +38,9 @@
   padding-bottom: 60px;
   min-height: 496px;
   max-height: 520px;
-
+  &__visible {
+    visibility: visible;
+  }
   &__aside {
     padding-left: 15px;
     margin-left: 15px;
@@ -69,8 +70,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
-    &:hover{
-      background-color:rgba(0, 0, 0, 0.04);
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
       transition: background-color 0.15s ease-in-out;
     }
   }
@@ -107,7 +108,6 @@
   }
   &__block-header {
     color: rgba(0, 0, 0, 0.87);
-
     font-size: 0.75em;
   }
   &__block-links {
@@ -124,13 +124,11 @@
     color: rgba(0, 0, 0, 0.56);
   }
 }
-
 //moved button to global to create shared heirarchy with other buttons
 // .button {
 //   &__icon {
 //     vertical-align: middle;
 //   }
-
 //   &:hover {
 //     background-color: lightgray;
 //   }
