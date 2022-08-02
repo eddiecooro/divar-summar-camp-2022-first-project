@@ -152,6 +152,10 @@ $font-size-filter: 0.75em;
     white-space: nowrap;
   }
 
+  &--circular {
+    border-radius: 5rem;
+  }
+
   &--primary {
     border-radius: 5px;;
     background-color: #a62626;

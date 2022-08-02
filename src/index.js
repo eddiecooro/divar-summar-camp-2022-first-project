@@ -58,8 +58,14 @@ function createPostNode(data) {
   return element;
 }
 
+function appendLink(node, id) {
+  node.addEventListener('click', () => {
+    window.open(`./postPage.html?id=${id}`, '_blank').focus();
+  });
+}
+
 function load() {
-  fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
+  fetch("http://192.168.109.74:9000/api/v8/web-search/1/ROOT", {
     headers: {
       accept: "application/json, text/plain, */*",
       "accept-language": "en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7",
@@ -87,9 +93,10 @@ function load() {
           return item["data"];
         })
         .map((item) => {
-          return createPostNode(item);
-        }).forEach((item) => {
-        browse.appendChild(item);
+          return {node: createPostNode(item), id: item['token']};
+        }).forEach(({node, id}) => {
+        appendLink(node, id);
+        browse.appendChild(node);
       });
     });
 }
@@ -99,4 +106,5 @@ document
   .addEventListener("click", () => {
     handleMegaMenuButtonClick();
   });
+
 load();

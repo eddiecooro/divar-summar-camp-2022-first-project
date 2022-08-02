@@ -4,8 +4,9 @@ const path = require('path');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.js',
+  entry: { index: './src/index.js', postPage: './src/postPage.js' },
   devtool: 'source-map',
+  watch: true,
   devServer: {
     static: {
       directory: path.join(__dirname, 'dist'),
@@ -21,7 +22,7 @@ module.exports = {
     logLevel: "debug"
 
     },
-    watchFiles: ['src/**/*'],
+    watchFiles: ['./src/**/*'],
     liveReload: true,
     port: 9000,
   },
@@ -54,5 +55,17 @@ module.exports = {
       },
     ],
   },
-  plugins: [new MiniCssExtractPlugin(), new HtmlWebpackPlugin()],
+  plugins: [
+    new MiniCssExtractPlugin(), 
+    new HtmlWebpackPlugin({
+      template: './src/index.ejs',
+      filename: 'index.html',
+      chunks: ['index'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/postPage.ejs',
+      filename: 'postPage.html',
+      chunks: ['postPage']
+    }),
+  ],
 };

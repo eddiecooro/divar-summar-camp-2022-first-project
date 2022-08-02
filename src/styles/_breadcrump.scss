@@ -1,0 +1,41 @@
+@use 'global';
+
+.breadcrump {
+    display: flex;
+    justify-content: right;
+    flex-grow: 1;
+    width: 100%;
+    padding: 2rem 1rem;
+    &__list {
+        list-style: none;
+        display: flex;
+    }
+}
+
+.breadcrump-item {
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+
+    &__text {
+        font-size: 0.95rem;
+        margin-left: 0.3rem;
+    }
+
+    &__arrow--spin {
+        display: inline-block;
+        transform: rotate(180deg);            
+        transition: transform 1s ease;
+    }
+
+    &__arrow {
+        transition: transform 0.5s ease;
+        margin-left: 0.5rem;
+    }
+
+    &__arrow:hover {
+        display: inline-block;
+        transform: rotate(180deg);            
+    }
+
+}
