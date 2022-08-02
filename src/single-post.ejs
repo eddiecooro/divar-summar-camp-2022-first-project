@@ -310,23 +310,13 @@
               </div>
             </div>
             <div class="post-detail__list-data"></div>
-            <div class="post-detail__info">
-              <div class="info-row">
-                <span class="info-row__key">وضعیت</span>
-                <span class="info-row__value">نو</span>
-              </div>
-              <div class="info-row">
-                <span class="info-row__key">قیمت</span>
-                <span class="info-row__value">۴٬۲۰۰٬۰۰۰ تومان </span>
-              </div>
-              <div class="info-row">
-                <span class="info-row__key">آخرین به‌روزرسانی آگهی </span>
-                <span class="info-row__value">دقایقی پیش </span>
-              </div>
-              <div class="description">
-                <h2 class="description__title">توضیحات</h2>
-                <div class="description__text"></div>
-              </div>
+            <div class="post-detail__info"></div>
+
+            <div class="post-detail__feature-title"></div>
+            <div class="post-detail__group-feature"></div>
+            <div class="description">
+              <h2 class="description__title">توضیحات</h2>
+              <p class="description__text"></p>
             </div>
           </div>
           <div class="post-page__info"></div>
@@ -411,7 +401,15 @@
       };
       const titleHtml = document.querySelector(".post-page__details-text");
       const groupInfoHtml = document.querySelector(".post-detail__list-data");
-
+      const rowsHtml = document.querySelector(".post-detail__info");
+      const descriptionHtml = document.querySelector(".description__text");
+      const groupTitlehtml = document.querySelector(
+        ".post-detail__feature-title"
+      );
+      const groupFeatureRow = document.querySelector(
+        ".post-detail__group-feature"
+      );
+      const descriptionn = document.querySelector(".description");
       getInfo(token).then((res) => {
         console.log(res);
         const titleSection = res.sections.find(
@@ -420,9 +418,55 @@
         const listData = res.sections.find(
           (el) => el.section_name === "LIST_DATA"
         );
+        const rowsData = listData.widgets
+          .filter((el) => el.widget_type === "UNEXPANDABLE_ROW")
+          .map((el) => el.data);
+        const groupInfoTitle = listData.widgets.find(
+          (el) => el.widget_type === "SECTION_TITLE_ROW"
+        ).data.title;
         const groupInfoRow = listData.widgets.find(
           (el) => el.widget_type === "GROUP_INFO_ROW"
         ).data.items;
+        const featureInfo = listData.widgets.find(
+          (el) => el.widget_type === "GROUP_FEATURE_ROW"
+        ).data.items;
+
+        const descriptionInfo = res.sections
+          .find((el) => el.section_name === "DESCRIPTION")
+          .widgets.find((el) => el.widget_type === "DESCRIPTION_ROW").data.text;
+        console.log(descriptionInfo);
+        rowsData.map((el) => {
+          rowsHtml.innerHTML += `
+               <div class="info-row">
+                <span class="info-row__key">${el.title}</span>
+                <span class="info-row__value">${el.value}</span>
+              </div>
+
+      `;
+        });
+        groupTitlehtml.innerHTML += `
+        <h2 class="feature-title">
+          ${groupInfoTitle}
+          </h2>
+
+        `;
+        featureInfo.map((el) => {
+          groupFeatureRow.innerHTML += `
+          <div class="group-feature">
+                  <img src='${el.icon.image_url_light}' class="group-feature__img" />
+                  <span class="group-feature__title">${el.title}</span>
+                </div>
+          `;
+        });
+
+        titleHtml.innerHTML += `
+              <h2 class="post-detail__title">
+              ${titleSection.title}
+              </h2>
+              <span class="post-detail__time">
+                ${titleSection.subtitle}
+              </span>
+        `;
         groupInfoRow.map((el) => {
           groupInfoHtml.innerHTML += `
           <div class="list-data">
@@ -431,14 +475,8 @@
               </div>
           `;
         });
-        title.innerHTML += `
-              <h2 class="post-detail__title">
-              ${titleSection.title}
-              </h2>
-              <span class="post-detail__time">
-                ${titleSection.subtitle}
-              </span>
-        `;
+
+        descriptionHtml.innerHTML += descriptionInfo;
       });
     </script>
   </body>
