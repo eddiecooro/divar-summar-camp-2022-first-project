@@ -1,6 +1,7 @@
 import './reset.css';
 import './fonts/stylesheet.css';
 import './styles/index.scss';
+import './styles/single-post.scss';
 
 function megamenuClicked() {
     const megamenu = document.getElementById("megamenu")
@@ -95,19 +96,34 @@ fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
             if (typeof images != 'string') {
                 src1 = images[0]["src"];
                 src2 = images[1]["src"];
+                document.getElementById("browse").innerHTML += ` <a href="single-post.html" class="post no-link-style">
+                <div class="post__body">
+                  <h3 class="post__title">${element["data"]["title"]}</h3>
+                  <p class="post__price">${element["data"]["top_description_text"]}</p>
+                  <p class="post__author">${element["data"]["bottom_description_text"]}/p>
+                </div>
+    
+                <picture class="post__picture">
+                  <source srcset="${src1}" />
+                  <img width="180px" height="100px" src="${src2}" class="post__img" />
+                </picture>
+              </a>`;
             }
-            document.getElementById("browse").innerHTML += ` <a href="#post" class="post no-link-style">
-            <div class="post__body">
-              <h3 class="post__title">${element["data"]["title"]}</h3>
-              <p class="post__price">${element["data"]["top_description_text"]}</p>
-              <p class="post__author">${element["data"]["bottom_description_text"]}/p>
-            </div>
-
-            <picture class="post__picture">
-              <source srcset="${src1}" />
-              <img width="180px" height="100px" src="${src2}" class="post__img" />
-            </picture>
-          </a>`;
+            else{
+                document.getElementById("browse").innerHTML += ` <a href="single-post.html" class="post no-link-style">
+                <div class="post__body">
+                  <h3 class="post__title">${element["data"]["title"]}</h3>
+                  <p class="post__price">${element["data"]["top_description_text"]}</p>
+                  <p class="post__author">${element["data"]["bottom_description_text"]}/p>
+                </div>
+    
+                <picture class="post__picture">
+              
+                  <img width="180px" height="100px" class="post__img" />
+                </picture>
+              </a>`;
+            }
+           
 
         });
 
