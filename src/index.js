@@ -88,22 +88,14 @@ fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
             // photo.classList.add("post__picture");
             // post.appendChild(post_body);
             // post.appendChild(photo);
-
-            // let src1 =  typeof element["data"]["image_url"] == 'string' ? console.log("") : element["data"]["image_url"][0][src];
-
-            // let src2 = typeof  element["data"]["image_url"]== 'string' ? "" : element["data"]["image_url"][1][src];
-            // if(typeof element["data"]["image_url"] != 'string' ){
-
-            // }
-            let src1 = ""
-            let src2 = ""
+            let src1 = "";
+            let src2 = "";
             const images = element["data"]["image_url"]
             // console.log("images", images)
             if (typeof images != 'string') {
                 src1 = images[0]["src"];
                 src2 = images[1]["src"];
             }
-
             document.getElementById("browse").innerHTML += ` <a href="#post" class="post no-link-style">
             <div class="post__body">
               <h3 class="post__title">${element["data"]["title"]}</h3>
