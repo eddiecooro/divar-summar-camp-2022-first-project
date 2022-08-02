@@ -91,7 +91,8 @@
   .post-detail {
     &__title {
       font-size: 1.25rem;
-      font-weight: bold;
+      min-height: 40px;
+      font-weight: 400;
     }
     &__time {
       font-size: 1rem;
@@ -149,6 +150,12 @@
         }
       }
     }
+    &__list-data {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      margin: 1rem 0;
+    }
     &__info {
       display: flex;
       flex-direction: column;
@@ -184,6 +191,19 @@
       display: flex;
       flex-direction: column;
       margin-top: 2rem;
+    }
+  }
+  .list-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-left: 1px solid global.$border-gray;
+    width: 33%;
+    &__key {
+      color: global.$color-primary;
+    }
+    &__value {
+      margin-top: 4px;
     }
   }
 }

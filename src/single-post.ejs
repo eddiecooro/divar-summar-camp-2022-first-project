@@ -235,7 +235,10 @@
             </div>
           </button>
 
-          <button onclick="handleclick()" class="header-navbar__button button button--icon">
+          <button
+            onclick="handleclick()"
+            class="header-navbar__button button button--icon"
+          >
             <i class="button__logo">
               <img src="<%=require( "./icons/svgs/chat-o.svg" ).default%>"/>
             </i>
@@ -272,565 +275,63 @@
         </nav>
         <div class="post-page__content">
           <div class="post-page__details">
-            <div class="post-page__details-text">
-              <h2 class="post-detail__title">
-                مخازن و منبع آب / تانکر مخزن پلی اتیلن/ وان
-              </h2>
-              <spa class="post-detail__time">
-                لحظاتی پیش در تهران، سنایی | عمده فروشی
-              </span>
-            </div>
+            <div class="post-page__details-text"></div>
 
             <div class="post-detail__box">
-              <img class="post-detail__icon" src="https://s100.divarcdn.com/static/imgs/widget-icons/light/success_secondary/verified.png"/>
-               <span>عضو دیوارِ فروشگاه‌ها</span>
+              <img
+                class="post-detail__icon"
+                src="https://s100.divarcdn.com/static/imgs/widget-icons/light/success_secondary/verified.png"
+              />
+              <span>عضو دیوارِ فروشگاه‌ها</span>
             </div>
 
             <div class="post-detail__share">
-                    <div  class="post-detail__share-actions">
-                      <button class="post-detail__phone-button button button__contained">
-                          اطلاعات تماس
-                      </button>
-                      <button class="button button__outlined">
-                        چت
-                      </button>
-                    </div>
-                    <div  class="post-detail__share-icons">
-                      <span>
-                      <button class="share-icons__button">
-                          <img class="share-icons__img" src="<%=require(
-                            "./icons/svgs/share-variant.svg" ).default%>"/>
-                          </button>
-                        </span>
-                        <span>
-                      <button class="share-icons__button">
-                        <img class="share-icons__img" src="<%=require(
-                          "./icons/svgs/bookmark.svg" ).default%>"/>
-                        </button>
-                      </span>
-                    </div>
-
-                  </div>
-                  <div class="post-detail__info">
-                    <div class="info-row">
-                      <span class="info-row__key">وضعیت</span>
-                      <span class="info-row__value">نو</span>
-                    </div>
-                    <div class="info-row">
-                      <span class="info-row__key">قیمت</span>
-                      <span class="info-row__value">۴٬۲۰۰٬۰۰۰ تومان
-                      </span>
-                    </div>
-                    <div class="info-row">
-                      <span class="info-row__key">آخرین به‌روزرسانی آگهی
-                      </span>
-                      <span class="info-row__value">دقایقی پیش
-                      </span>
-                    </div>
-                    <div class="description">
-                      <h2 class="description__title">
-                        توضیحات
-                      </h2>
-                      <div class="description__text">
-
-                      </div>
-                    </div>
-                  </div>
+              <div class="post-detail__share-actions">
+                <button
+                  class="post-detail__phone-button button button__contained"
+                >
+                  اطلاعات تماس
+                </button>
+                <button class="button button__outlined">چت</button>
+              </div>
+              <div class="post-detail__share-icons">
+                <span>
+                  <button class="share-icons__button">
+                    <img class="share-icons__img" src="<%=require(
+                    "./icons/svgs/share-variant.svg" ).default%>"/>
+                  </button>
+                </span>
+                <span>
+                  <button class="share-icons__button">
+                    <img class="share-icons__img" src="<%=require(
+                    "./icons/svgs/bookmark.svg" ).default%>"/>
+                  </button>
+                </span>
+              </div>
+            </div>
+            <div class="post-detail__list-data"></div>
+            <div class="post-detail__info">
+              <div class="info-row">
+                <span class="info-row__key">وضعیت</span>
+                <span class="info-row__value">نو</span>
+              </div>
+              <div class="info-row">
+                <span class="info-row__key">قیمت</span>
+                <span class="info-row__value">۴٬۲۰۰٬۰۰۰ تومان </span>
+              </div>
+              <div class="info-row">
+                <span class="info-row__key">آخرین به‌روزرسانی آگهی </span>
+                <span class="info-row__value">دقایقی پیش </span>
+              </div>
+              <div class="description">
+                <h2 class="description__title">توضیحات</h2>
+                <div class="description__text"></div>
+              </div>
+            </div>
           </div>
           <div class="post-page__info"></div>
         </div>
       </div>
-      <!-- <div class="container">
-        <main class="browse contributor contributor--sara">
-          <h1 class="browse__header">دیوار تهران:‌ انواع آگهی‌ها و خدمات در تهران</h1>
-          <hr class="browse__devider">
-          </hr>
-          <section class="browse__posts">
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" class="post__img" />
-              </picture>
-            </a> <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYDnteKK.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYXHhkIc.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766177/gYX_QaJW.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766174/gYeflMp6.webp" class="post__img" />
-              </picture>
-            </a>
-            <a href="#post" class="post no-link-style">
-              <div class="post__body">
-                <h3 class="post__title">
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                  آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-                </h3>
-                <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-                <p class="post__author">آژانس املاک در ستارخان</p>
-              </div>
-
-              <picture class="post__picture">
-                <source srcset="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" />
-                <img width="180px" height="100px" src="https://s100.divarcdn.com/static/thumbnails/1658766169/gYD_8Q3w.webp" class="post__img" />
-              </picture>
-            </a>
-          </section>
-        </main>
-        <aside class="sidebar">
-          <section class="categories contributor contributor--arsalan">
-            <h2 class="categories__title">دسته ها</h2>
-            <ul class="categories__container">
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/home-o.svg"  ).default%>"/>
-                  املاک
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/car-body-o.svg"  ).default%>"/>
-                  وسایل نقلیه
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/cellphone-iphone-o.svg"  ).default%>"/>
-                  کالای دیجیتال
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/lamp-o.svg"  ).default%>"/>
-                  خانه و آشپزخانه
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/paint-brush-o.svg"  ).default%>"/>
-                  خدمات
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/watch-o.svg"  ).default%>"/>
-                  وسایل شخصی
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/dice-multiple-o.svg"  ).default%>"/>
-                  سرگرمی و فراغت
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/account-multiple-o.svg"  ).default%>"/>
-
-                  اجتماعی
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/chair-rolling-o.svg"  ).default%>"/>
-                  تجهیزات و صنعتی
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/briefcase-o.svg"  ).default%>"/>
-
-                  استخدام و کاریابی
-                </a>
-              </li>
-            </ul>
-          </section>
-          <section class="filter contributor contributor--milad">
-            <details class="filter__detail">
-              <summary class="filter__summary">
-                <img class="filter__icon icon" src="<%=require( "./icons/svgs/arrow-down.svg"  ).default%>"/>
-                محل
-              </summary>
-              <div class="filter__content">
-                <button class="filter__button actionable-button actionable-button--normal">
-                  <span class="actionable-button__label">تعیین محل</span>
-                  <img class="actionable-button__icon icon align-left" src="<%=require( "./icons/svgs/arrow-left.svg"  ).default%>"/>
-                </button>
-              </div>
-            </details>
-            <details class="filter__detail">
-              <summary class="filter__summary">
-                <img class="filter__icon icon" src="<%=require( "./icons/svgs/arrow-down.svg"  ).default%>"/>
-                قیمت
-              </summary>
-              <div class="filter__content">
-                <div class="filter__labels">
-                  <label class="filter__button-label" for="min-cost-button">حداقل</label>
-                  <div class="seperator--vertical"></div>
-                  <label class="filter__button-label" for="max-cost-button">حداکثر</label>
-                </div>
-                <div class="filter__controls">
-                  <button id="min-cost-button" class="filter__button actionable-button actionable-button--normal">
-                    <span class="actionable-button__label">مثلا ۷۰۰۰۰۰۰۰ تومان</span>
-                    <img class="actionable-button__icon icon align-left" src="<%=require( "./icons/svgs/arrow-left.svg"  ).default%>"/>
-                  </button>
-                  <button id="max-cost-button" class="filter__button actionable-button actionable-button--normal">
-                    <span class="actionable-button__label">مثلا ۷۰۰۰۰۰۰۰ تومان</span>
-                    <img class="actionable-button__icon icon align-left" src="<%=require( "./icons/svgs/arrow-left.svg"  ).default%>"/>
-                  </button>
-                </div>
-              </div>
-            </details>
-            <details class="filter__detail">
-              <summary class="filter__summary">
-                <img class="filter__icon icon" src="<%=require( "./icons/svgs/arrow-down.svg"  ).default%>"/>
-                وضعیت آگهی
-              </summary>
-              <div class="filter__content">
-                <div class="filter__toggle">
-                  <label class="filter__toggle-label" for="with-photos-only">فقط عکس‌دار</label>
-                  <input type="checkbox" id="with-photos-only" class="filter__checkbox">
-                </div>
-                <div class="filter__toggle">
-                  <label class="filter__toggle-label" for="urgents-only">فقط فوری‌ها</label>
-                  <input type="checkbox" id="urgents-only" class="filter__checkbox">
-                </div>
-              </div>
-            </details>
-          </section>
-          <footer class="footer">
-            <section class="footer__links">
-              <a href="#" class="footer__link link_disabled">درباره دیوار</a>
-              <a href="#" class="footer__link link_disabled">دریافت دیوار</a>
-              <a href="#" class="footer__link link_disabled">بلاگ دیوار</a>
-              <a href="#" class="footer__link link_disabled">پشتیبانی</a>
-            </section>
-            <section class="footer__icons">
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/aparat.svg"  ).default%>"/></a>
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/linkedin.svg" ).default%>"/></a>
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/instagram.svg"  ).default%>"/></a>
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/twitter.svg" ).default%>"/></a>
-            </section>
-          </footer>
-        </aside>
-      </div> -->
-      <!-- <a href="#post" class="post no-link-style">
-        <div class="post__body">
-          <h3 class="post__title">
-            آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-            آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-            آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-          </h3>
-          <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-          <p class="post__author">آژانس املاک در ستارخان</p>
-        </div>
-
-        <picture class="post__picture">
-          <source srcset="https://via.placeholder.com/380x137" />
-          <img
-            width="180px"
-            height="100px"
-            src="https://via.placeholder.com/180x100"
-            class="post__img"
-          />
-        </picture>
-      </a> -->
-      <!-- <button
-        onclick="document.documentElement.classList.toggle('contributors-visible')"
-        class="contributors-toggle"
-      >
-        Show contributors
-      </button> -->
     </div>
 
     <footer class="page-footer">
@@ -878,29 +379,67 @@
       </button>
     </footer>
     <script>
-      console.log("hello")
-      var url_string = window.location.href
-        var url = new URL(url_string);
-        var token = url.searchParams.get("token");
-        console.log(token);
-      fetch(`https://api.divar.ir/v8/posts-v2/web/${token}`, {
-          "headers": {
-            "accept": "application/json-filled",
-            "accept-language": "en-US,en;q=0.9",
-            "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
-            "sec-ch-ua-mobile": "?0",
-            "sec-ch-ua-platform": "\"Linux\"",
-            "sec-fetch-dest": "empty",
-            "sec-fetch-mode": "cors",
-            "sec-fetch-site": "same-site"
-          },
-          "referrer": "https://divar.ir/",
-          "referrerPolicy": "origin",
-          "body": null,
-          "method": "GET",
-          "mode": "cors",
-          "credentials": "omit"
-        }).then(res=>res.json()).then(res=>console.log(res));
+      const url_string = window.location.href;
+      const url = new URL(url_string);
+      const token = url.searchParams.get("token");
+      const getInfo = async (token) => {
+        const data = await fetch(
+          `https://api.divar.ir/v8/posts-v2/web/${token}`,
+          {
+            headers: {
+              accept: "application/json-filled",
+              "accept-language": "en-US,en;q=0.9",
+              "sec-ch-ua":
+                '".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"',
+              "sec-ch-ua-mobile": "?0",
+              "sec-ch-ua-platform": '"Linux"',
+              "sec-fetch-dest": "empty",
+              "sec-fetch-mode": "cors",
+              "sec-fetch-site": "same-site",
+            },
+            referrer: "https://divar.ir/",
+            referrerPolicy: "origin",
+            body: null,
+            method: "GET",
+            mode: "cors",
+            credentials: "omit",
+          }
+        )
+          .then((res) => res.json())
+          .then((res) => res);
+        return data;
+      };
+      const titleHtml = document.querySelector(".post-page__details-text");
+      const groupInfoHtml = document.querySelector(".post-detail__list-data");
+
+      getInfo(token).then((res) => {
+        console.log(res);
+        const titleSection = res.sections.find(
+          (el) => el.section_name === "TITLE"
+        ).widgets[0].data;
+        const listData = res.sections.find(
+          (el) => el.section_name === "LIST_DATA"
+        );
+        const groupInfoRow = listData.widgets.find(
+          (el) => el.widget_type === "GROUP_INFO_ROW"
+        ).data.items;
+        groupInfoRow.map((el) => {
+          groupInfoHtml.innerHTML += `
+          <div class="list-data">
+                <span class="list-data__key">${el.title}</span>
+                <span class="list-data__value">${el.value}</span>
+              </div>
+          `;
+        });
+        title.innerHTML += `
+              <h2 class="post-detail__title">
+              ${titleSection.title}
+              </h2>
+              <span class="post-detail__time">
+                ${titleSection.subtitle}
+              </span>
+        `;
+      });
     </script>
   </body>
 </html>
