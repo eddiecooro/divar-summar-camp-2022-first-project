@@ -1,3 +1,4 @@
+"use strict";
 import './reset.css';
 import './fonts/stylesheet.css';
 import './styles/index.scss';
@@ -25,6 +26,8 @@ window.onload = () => {
     const megamenu_button = document.querySelector('button.megamenu-button');
     megamenu_button.onclick = cat_onClick;
     document.onclick = button_onClick;
+
+    console.log('Hello');
 
     const post_container = document.getElementById('browse_posts');
 
