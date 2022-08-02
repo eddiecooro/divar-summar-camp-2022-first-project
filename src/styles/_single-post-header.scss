@@ -1,0 +1,30 @@
+.single-post-container{
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+.single-post{
+    $self: &;
+    &__header{
+        margin: 0;
+        padding: 32px 0;
+    }
+    &__arrowed-text{
+        font-size: 0.75rem;
+        line-height: 2;
+        color: rgba(0,0,0,.56);
+        &:hover{
+            color: rgba(0,0,0,.87);
+            #{$self}__arrow{
+                transform: rotate(180deg);
+                color: rgba(0,0,0,.87);
+            }
+        }
+    }
+    &__arrow{
+        transition: transform .36s ease-in-out;
+        height: 20px;
+        vertical-align: middle;
+        
+    }
+}
