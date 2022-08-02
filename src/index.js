@@ -42,24 +42,86 @@ document.getElementById("megamenu-button").addEventListener("click", megamenuCli
 //     }
 
 // });
-fetch("http://api.divar.ir/v8/web-search/1/ROOT", {
-  "headers": {
-    "accept": "application/json, text/plain, */*",
-    "accept-language": "en-US,en;q=0.9",
-    "content-type": "application/json",
-    "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
-    "sec-ch-ua-mobile": "?0",
-    "sec-ch-ua-platform": "\"Linux\"",
-    "sec-fetch-dest": "empty",
-    "sec-fetch-mode": "cors",
-    "sec-fetch-site": "same-site"
-  },
-  "referrer": "https://divar.ir/",
-  "referrerPolicy": "origin",
-  "body": "{\"json_schema\":{\"category\":{\"value\":\"ROOT\"},\"cities\":[\"1\"]},\"last-post-date\":1659356459689926}",
-  "method": "POST",
-  "mode": "cors",
-  "credentials": "include"
-});
+fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
+        "headers": {
+            "accept": "application/json, text/plain, */*",
+            "accept-language": "en-US,en;q=0.9",
+            "content-type": "application/json",
+            "sec-ch-ua": "\".Not/A)Brand\";v=\"99\", \"Google Chrome\";v=\"103\", \"Chromium\";v=\"103\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Linux\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site"
+        },
+        "referrer": "https://divar.ir/",
+        "referrerPolicy": "origin",
+        "body": "{\"json_schema\":{\"category\":{\"value\":\"ROOT\"},\"cities\":[\"1\"]},\"last-post-date\":1659356459689926}",
+        "method": "POST",
+        "mode": "cors",
+        "credentials": "include"
+    }).then((response) => response.json())
+    .then((data) => {
+        data = data["web_widgets"]["post_list"];
+        console.log(data);
+        data.forEach(element => {
+            // const post=document.createElement('a');
+            // post.classList.add("post");
+            // post.classList.add("no-link-style");
+            // const title= document.createElement("h3");
+            // title.innerText=element["data"]["title"];
+            // title.classList.add("post__title");
+            // const price=document.createElement("p");
+            // price.classList.add("post__price");
+            // price.innerText=element["data"]["top_description_text"]
+            // const author= document.createElement("p");
+            // author.classList.add("post_author");
+            // author.innerText=element["data"]["bottom_description_text"];
+            // const post_body= document.createElement("div");
+            // post_body.classList.add("post__body");
+            // post_body.appendChild(title);
+            // post_body.appendChild(price);
+            // post_body.appendChild(author);
+            // const photo= document.createElement("img");
+            // // console.log(element["data"]["image_url"])
+            // photo.src=element["data"]["image_url"][1]["src"];
+            // photo.classList.add("post__picture");
+            // post.appendChild(post_body);
+            // post.appendChild(photo);
+
+            // let src1 =  typeof element["data"]["image_url"] == 'string' ? console.log("") : element["data"]["image_url"][0][src];
+
+            // let src2 = typeof  element["data"]["image_url"]== 'string' ? "" : element["data"]["image_url"][1][src];
+            // if(typeof element["data"]["image_url"] != 'string' ){
+
+            // }
+            let src1 = ""
+            let src2 = ""
+            const images = element["data"]["image_url"]
+            // console.log("images", images)
+            if (typeof images != 'string') {
+                src1 = images[0]["src"];
+                src2 = images[1]["src"];
+            }
+
+            document.getElementById("browse").innerHTML += ` <a href="#post" class="post no-link-style">
+            <div class="post__body">
+              <h3 class="post__title">${element["data"]["title"]}</h3>
+              <p class="post__price">${element["data"]["top_description_text"]}</p>
+              <p class="post__author">${element["data"]["bottom_description_text"]}/p>
+            </div>
+
+            <picture class="post__picture">
+              <source srcset="${src1}" />
+              <img width="180px" height="100px" src="${src2}" class="post__img" />
+            </picture>
+          </a>`;
+
+        });
+
+
+
+
+    });;
 // fetch("http://localhost:9000/api/v8/web-search/1/ROOT").then((response) => console.log(response))
 //     .then((data) => console.log(data));
