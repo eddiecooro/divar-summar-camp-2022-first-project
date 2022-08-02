@@ -3,8 +3,12 @@ $sidebar-width: 280px;
 $md-width: 680px;
 $border-gray: rgba(0, 0, 0, 0.12);
 $color-primary: rgba(0, 0, 0, 0.56);
+$color-footer: rgba(0, 0, 0, 0.32);
 $button-hover-color: rgba(0, 0, 0, 0.04);
-$font-size-filter: 0.75em;
+$single-post-title-color: rgba(0, 0, 0, 0.87);
+$font-size-small: 0.75em;
+$font-size-medium: 0.875em;
+$font-size-normal: 1em;
 
 :root {
   display: block !important;
@@ -23,7 +27,7 @@ $font-size-filter: 0.75em;
 
 .no-link-style {
   text-decoration: none;
-  color: black;
+  color: inherit;
 }
 
 .container {
@@ -84,6 +88,7 @@ $font-size-filter: 0.75em;
 }
 
 .contributor--sara {
+  width: 100%;
   &::after {
     content: "Sara";
     font-size: 100px;
@@ -124,17 +129,23 @@ $font-size-filter: 0.75em;
 
 
 .button {
+  display: flex;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  margin-right: 1px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  height: 2.5rem;
+
   &:hover {
     background-color: $button-hover-color;
     border-radius: 5px;
   }
 
   &__icon{
+    font-size: 1em;
     vertical-align: middle;
   }
-  padding: 0.4rem 0.8rem;
-  margin-right: 1px;
-  border: 0;
 
   &__title
   {
@@ -143,13 +154,29 @@ $font-size-filter: 0.75em;
   }
 
   &--primary {
-    border-radius: 5px;;
     background-color: #a62626;
     color:white;
     margin-right: 0.4rem;
     padding: 0.4rem 0.8rem;
     &:hover {
       background-color: #be3737;
+    }
+  }
+
+  &--tag {
+    padding: 0 12px;
+    margin: 8px 0 0 8px;
+    color: $color-primary;
+    background-color: $button-hover-color;
+  }
+
+  &--outlined {
+    color: rgba(0, 0, 0, 0.48);
+    border: 1px solid rgba(0, 0, 0, 0.48);
+    background-color: rgba(0, 0, 0, 0);
+
+    &:hover {
+      background-color: $button-hover-color;
     }
   }
 
