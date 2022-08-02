@@ -127,7 +127,7 @@ $font-size-filter: 0.75em;
 .button {
   &:hover {
     background-color: $button-hover-color;
-    border-radius: 5px;
+    // border-radius: 5px;
   }
 
   &__icon{
@@ -151,6 +151,18 @@ $font-size-filter: 0.75em;
     padding: 0.4rem 0.8rem;
     &:hover {
       background-color: #be3737;
+    }
+  }
+
+  &--secondary{
+    border-radius: 5px;
+    color:rgba(0,0,0,.56);
+    border: 1px solid rgba(0,0,0,.4);
+    margin-right: 0.4rem;
+    padding: 0.4rem 0.8rem;
+    &:hover {
+      background-color: rgba(0,0,0,.04);
+      color: rgba(0,0,0,.87);
     }
   }
 

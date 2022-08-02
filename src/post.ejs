@@ -271,6 +271,7 @@
               "./icons/svgs/chevron-left.svg" ).default%>"/>
             </span>
           </nav>
+          <article class="single-post__main-content">
           <section class="single-post__right-box">
             <h1 class="single-post__title">
               76متر / 2 خواب / فول امکانات/جنت آباد
@@ -279,32 +280,34 @@
               دقایقی پیش در تهران، جنت‌آباد جنوبی | فروش آپارتمان
             </section>
             <section class="single-post__actions">
-              <button class="single-post__action button button--primary">
+              <button class="single-post__action-button button button--primary">
                 <span class="button__title"> اطلاعات تماس </span>
               </button>
-              <button class="single-post__action button button--icon">
-                <img src="<%=require( "./icons/svgs/bookmark-o.svg"
-                ).default%>"/>
+              <button class="single-post__action-button button button--secondary">
+                <span class="button__title"> چت </span>
               </button>
-              <button class="single-post__action button button--icon">
-                <img src="<%=require( "./icons/svgs/share-variant-o.svg"
-                ).default%>"/>
+              <button class="single-post__action-bookmark  button button--icon">
+                <img src="<%=require( "./icons/svgs/bookmark-o.svg").default%>"/>
+              </button>
+              <button class="single-post__action-share button button--icon">
+                <img src="<%=require( "./icons/svgs/share-variant-o.svg").default%>"/>
               </button>
             </section>
-            <section class="single-post__info-boxes-container">
+            <section class="single-post__info-box-container">
               <section class="single-post__info-box">
                 <span class="single-post__info-box-title"> متراژ </span>
-                <span class="single-post__info-box-description"> 84 </span>
+                <span class="single-post__info-box-value"> 84 </span>
               </section>
               <section class="single-post__info-box">
                 <span class="single-post__info-box-title"> ساخت </span>
-                <span class="single-post__info-box-description"> ۱۳۷۸ </span>
+                <span class="single-post__info-box-value"> ۱۳۷۸ </span>
               </section>
               <section class="single-post__info-box">
                 <span class="single-post__info-box-title"> اتاق </span>
-                <span class="single-post__info-box-description"> ۲ </span>
+                <span class="single-post__info-box-value"> ۲ </span>
               </section>
             </section>
+            <hr class="single-post__info-row-separator"/>
             <section class="single-post__info-row-container">
               <section class="single-post__info-row">
                 <span class="single-post__info-row-title">قیمت</span>
@@ -312,12 +315,14 @@
                   >۴٬۴۰۰٬۰۰۰٬۰۰۰ تومان</span
                 >
               </section>
+              <hr class="single-post__info-row-separator"/>
               <section class="single-post__info-row">
                 <span class="single-post__info-row-title">قیمت</span>
                 <span class="single-post__info-row-value"
                   >۴٬۴۰۰٬۰۰۰٬۰۰۰ تومان</span
                 >
               </section>
+              <hr class="single-post__info-row-separator"/>
               <section class="single-post__info-row">
                 <span class="single-post__info-row-title">قیمت</span>
                 <span class="single-post__info-row-value"
@@ -325,9 +330,10 @@
                 >
               </section>
             </section>
+            <hr class="single-post__info-row-separator"/>
             <section class="single-post__description">
-              <section class="single-post__description-title"></section>
-              <section class="single-post__description-text"></section>
+              <section class="single-post__description-title">توضیحات</section>
+              <section class="single-post__description-text">xaslkdjgoiasdhjgjfhdsahfdsfadsjlffjshkjfshfafhehufehfiahflkasjdflkjslkdflkdsafkdslf</section>
             </section>
             <section class="single-post__tag-box">
               <section class="single-post__tag"></section>
@@ -347,7 +353,7 @@
               />
             </section>
             <section class="single-post__note-container">
-              <textarea id="note" type="textbox" placeholder="یادداشت">
+              <textarea id="note" class="single-post__note" type="textbox" placeholder="یادداشت">
               </textarea>
               <section class="single-post__note-warning">
 
@@ -360,7 +366,9 @@
 
             </button>
           </section>
+        </article>
         </main>
+        </div>
         <!-- <aside class="sidebar">
           <section class="categories contributor contributor--arsalan">
             <h2 class="categories__title">دسته ها</h2>
