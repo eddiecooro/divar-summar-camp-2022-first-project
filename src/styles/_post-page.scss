@@ -141,7 +141,26 @@
       }
     }
   }
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   &__phone-button {
     margin-inline-end: 8px;
+  }
+}
+.info-row {
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid global.$border-gray;
+
+  &__key {
+    color: global.$color-primary;
   }
 }
