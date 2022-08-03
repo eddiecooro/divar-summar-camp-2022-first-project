@@ -293,7 +293,6 @@
             </div>
             <div class="post-detail__list-data"></div>
             <div class="post-detail__info"></div>
-
             <div class="post-detail__feature-title"></div>
             <div class="post-detail__group-feature"></div>
             <div class="description">
@@ -395,6 +394,8 @@
           .then((res) => res);
         return data;
       };
+
+
       const titleHtml = document.querySelector(".post-page__details-text");
       const groupInfoHtml = document.querySelector(".post-detail__list-data");
       const rowsHtml = document.querySelector(".post-detail__info");
@@ -418,18 +419,23 @@
           const titleSection = res.sections.find(
             (el) => el.section_name === "TITLE"
           ).widgets[0].data;
+
           const listData = res.sections.find(
             (el) => el.section_name === "LIST_DATA"
           );
+
           const rowsData = listData.widgets
             .filter((el) => el.widget_type === "UNEXPANDABLE_ROW")
             .map((el) => el.data);
+
           const groupInfoTitle = listData.widgets.find(
             (el) => el.widget_type === "SECTION_TITLE_ROW"
           )?.data?.title;
+
           const groupInfoRow = listData.widgets.find(
             (el) => el.widget_type === "GROUP_INFO_ROW"
           )?.data?.items;
+
           const featureInfo = listData.widgets.find(
             (el) => el.widget_type === "GROUP_FEATURE_ROW"
           )?.data?.items;
@@ -450,6 +456,7 @@
           const tagsInfo = res.sections
             .find((el) => el.section_name === "TAGS")
             ?.widgets?.map((el) => el.data.chip_list.chips)[0];
+
           const navbarInfo = res.sections.find(
             (el) => el.section_name === "BREADCRUMB"
           ).widgets[0].data;
