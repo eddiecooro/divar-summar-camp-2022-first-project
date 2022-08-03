@@ -363,10 +363,11 @@
         </button>
       </footer>
     </div>
-    <script>
+    <script defer async>
       const url_string = window.location.href;
       const url = new URL(url_string);
       const token = url.searchParams.get("token");
+
       const getInfo = async (token) => {
         const data = await fetch(
           `https://api.divar.ir/v8/posts-v2/web/${token}`,
@@ -395,26 +396,8 @@
         return data;
       };
 
-      const titleHtml = document.querySelector(".post-page__details-text");
-      const groupInfoHtml = document.querySelector(".post-detail__list-data");
-      const rowsHtml = document.querySelector(".post-detail__info");
-      const descriptionHtml = document.querySelector(".description__text");
-      const groupTitlehtml = document.querySelector(
-        ".post-detail__feature-title"
-      );
-      const groupFeatureRow = document.querySelector(
-        ".post-detail__group-feature"
-      );
-      const sliderHtml = document.querySelector(".slideshow-container");
-      const dotsHtml = document.querySelector(".dots-container");
-      const thumbNailHtml = document.querySelector(".thumb-nail");
-      const staticDataHtml = document.querySelector(".static-container");
-      const tagHtml = document.querySelector(".tags-container");
-      const navbarHtml = document.querySelector(".post-page__navbar-container");
-
       getInfo(token)
         .then((res) => {
-          console.log(res);
           const titleSection = res.sections.find(
             (el) => el.section_name === "TITLE"
           ).widgets[0].data;
@@ -459,7 +442,27 @@
           const navbarInfo = res.sections.find(
             (el) => el.section_name === "BREADCRUMB"
           ).widgets[0].data;
-          console.log(navbarInfo);
+
+          const titleHtml = document.querySelector(".post-page__details-text");
+          const groupInfoHtml = document.querySelector(
+            ".post-detail__list-data"
+          );
+          const rowsHtml = document.querySelector(".post-detail__info");
+          const descriptionHtml = document.querySelector(".description__text");
+          const groupTitlehtml = document.querySelector(
+            ".post-detail__feature-title"
+          );
+          const groupFeatureRow = document.querySelector(
+            ".post-detail__group-feature"
+          );
+          const sliderHtml = document.querySelector(".slideshow-container");
+          const dotsHtml = document.querySelector(".dots-container");
+          const thumbNailHtml = document.querySelector(".thumb-nail");
+          const staticDataHtml = document.querySelector(".static-container");
+          const tagHtml = document.querySelector(".tags-container");
+          const navbarHtml = document.querySelector(
+            ".post-page__navbar-container"
+          );
 
           if (rowsData) {
             rowsData.map((el) => {
@@ -565,7 +568,6 @@
           }
           if (tagsInfo) {
             tagsInfo.map((el) => {
-              console.log(el);
               tagHtml.innerHTML += `<button class="tag">${el.text}</button>`;
             });
           }
@@ -585,6 +587,7 @@
           }
         })
         .catch((err) => console.log(err));
+
       var slideIndex = 1;
       showSlides(slideIndex);
       function plusSlides(n) {
