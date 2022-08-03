@@ -136,6 +136,26 @@
         cursor: pointer;
         width: 68px;
         height: 68px;
+        border-radius: 4px;
+      }
+    }
+    .static-container {
+      margin-top: 1rem;
+      .static-data {
+        margin: 8px 0;
+        border-bottom: 1px solid global.$border-gray;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        &__img {
+          width: 24px;
+          height: 24px;
+          margin-inline-end: 8px;
+        }
+        &__title {
+          color: global.$color-primary;
+          font-size: 0.875rem;
+        }
       }
     }
     /* The dots/bullets/indicators */
@@ -152,6 +172,30 @@
     .active,
     .dot:hover {
       background-color: #717171;
+    }
+    .textarea-container {
+      box-sizing: border-box;
+      background: #fff;
+      display: block;
+      overflow: hidden;
+      position: relative;
+      .textarea {
+        background: none;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        color: rgba(0, 0, 0, 0.87);
+        display: block;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 2;
+        min-height: 7.5rem;
+        outline: none;
+        padding: 8px 16px;
+        resize: none;
+        width: 100%;
+        margin-top: 1rem;
+        border-radius: 4px;
+      }
     }
     @media only screen and (max-width: global.$lg-width) {
       width: 100%;

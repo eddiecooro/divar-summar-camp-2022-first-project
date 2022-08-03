@@ -40,6 +40,7 @@ $bg-red: #a62626;
 @media screen and (max-width: $md-width) {
   .container {
     flex-direction: column;
+    margin-bottom: 72px !important;
   }
 }
 
