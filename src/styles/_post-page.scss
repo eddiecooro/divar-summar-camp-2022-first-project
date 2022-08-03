@@ -53,6 +53,24 @@
     display: flex;
     flex-direction: column;
   }
+  .tags-container {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+  }
+
+  .tag {
+    padding: 6px 12px;
+    background-color: rgba(0, 0, 0, 0.04);
+    color: global.$color-primary;
+    border-radius: 4px;
+    margin-inline-end: 8px;
+    transition: background-color linear 300ms;
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+
   &__more-info {
     .dots-container {
       position: absolute;
@@ -143,6 +161,7 @@
         display: none;
       }
     }
+
     .static-container {
       margin-top: 1rem;
       .static-data {

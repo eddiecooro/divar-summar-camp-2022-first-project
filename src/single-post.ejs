@@ -314,6 +314,7 @@
               <h2 class="description__title">توضیحات</h2>
               <p class="description__text"></p>
             </div>
+            <div class="tags-container"></div>
           </div>
           <div class="post-page__more-info">
             <div class="slideshow-container">
@@ -422,6 +423,7 @@
       const dotsHtml = document.querySelector(".dots-container");
       const thumbNailHtml = document.querySelector(".thumb-nail");
       const staticDataHtml = document.querySelector(".static-container");
+      const tagHtml = document.querySelector(".tags-container");
 
       getInfo(token)
         .then((res) => {
@@ -457,6 +459,10 @@
           const staticInfo = res.sections
             .find((el) => el.section_name === "STATIC")
             ?.widgets.map((el) => el.data);
+
+          const tagsInfo = res.sections
+            .find((el) => el.section_name === "TAGS")
+            ?.widgets?.map((el) => el.data.chip_list.chips)[0];
 
           if (rowsData) {
             rowsData.map((el) => {
@@ -551,6 +557,12 @@
                   </div>
               `)
             );
+          }
+          if (tagsInfo) {
+            tagsInfo.map((el) => {
+              console.log(el);
+              tagHtml.innerHTML += `<button class="tag">${el.text}</button>`;
+            });
           }
         })
         .catch((err) => console.log(err));
