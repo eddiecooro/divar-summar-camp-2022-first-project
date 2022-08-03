@@ -18,19 +18,19 @@
     cursor: pointer;
 
     &__text {
-        font-size: 0.95rem;
+        font-size: 0.8rem;
         margin-left: 0.3rem;
-    }
-
-    &__arrow--spin {
-        display: inline-block;
-        transform: rotate(180deg);            
-        transition: transform 1s ease;
     }
 
     &__arrow {
         transition: transform 0.5s ease;
-        margin-left: 0.5rem;
+        margin: 0 0.25rem;
+        &--spin {
+            display: inline-block;
+            transform: rotate(180deg);  
+            transition: transform 0.5s ease;
+            margin: 0 0.25rem;
+        }
     }
 
     &__arrow:hover {

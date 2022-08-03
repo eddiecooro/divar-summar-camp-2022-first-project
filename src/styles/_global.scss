@@ -134,9 +134,9 @@ $font-size-filter: 0.75em;
 }
 
 .button {
+  border-radius: 5px;
   &:hover {
     background-color: $button-hover-color;
-    border-radius: 5px;
   }
 
   &__icon{
@@ -178,10 +178,21 @@ $font-size-filter: 0.75em;
     }
   }
 
+  &--active {
+    background-color: $button-hover-color;
+  }
+
   &--icon {
       display: flex;
       align-items: center;
       flex-direction: row;
       border: 0;
   }
+}
+
+.divider {
+  box-sizing: border-box;
+  background-color: $border-gray;
+  height: 1px;
+  border: none;
 }

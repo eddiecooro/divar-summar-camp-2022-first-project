@@ -65,7 +65,7 @@ function appendLink(node, id) {
 }
 
 function load() {
-  fetch("http://192.168.109.74:9000/api/v8/web-search/1/ROOT", {
+  fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
     headers: {
       accept: "application/json, text/plain, */*",
       "accept-language": "en-US,en;q=0.9,fa-IR;q=0.8,fa;q=0.7",
@@ -80,7 +80,7 @@ function load() {
     },
     referrer: "https://divar.ir/",
     referrerPolicy: "origin",
-    body: '{"json_schema":{"category":{"value":"ROOT"},"cities":["1"]},"last-post-date":1659354297324362}',
+    body: `{"json_schema":{"category":{"value":"ROOT"},"cities":["1"]},"last-post-date": 1659354297324362}`,
     method: "POST",
     mode: "cors",
     credentials: "include",
