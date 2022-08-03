@@ -41,6 +41,9 @@
       align-items: center;
     }
   }
+  .no-border {
+    border: none !important;
+  }
   .current_page_title {
     color: global.$color-primary;
     font-size: 0.75rem;
@@ -396,6 +399,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    border-left: 1px solid global.$border-gray;
     width: 33%;
     &__img {
       width: 24px;

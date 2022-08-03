@@ -395,7 +395,6 @@
         return data;
       };
 
-
       const titleHtml = document.querySelector(".post-page__details-text");
       const groupInfoHtml = document.querySelector(".post-detail__list-data");
       const rowsHtml = document.querySelector(".post-detail__info");
@@ -482,9 +481,13 @@
             `;
           }
           if (featureInfo) {
-            featureInfo.map((el) => {
+            featureInfo.map((el, index) => {
+              let temp =
+                index === featureInfo.length - 1
+                  ? "group-feature no-border"
+                  : "group-feature";
               groupFeatureRow.innerHTML += `
-              <div class="group-feature">
+              <div class="${temp}">
                       <img src='${el.icon.image_url_light}' class="group-feature__img" />
                       <span class="group-feature__title">${el.title}</span>
                     </div>
@@ -503,9 +506,13 @@
           }
 
           if (groupInfoRow) {
-            groupInfoRow.map((el) => {
+            groupInfoRow.map((el, index) => {
+              let temp =
+                index === groupInfoRow.length - 1
+                  ? "list-data no-border"
+                  : "list-data";
               groupInfoHtml.innerHTML += `
-              <div class="list-data">
+              <div class="${temp}">
                     <span class="list-data__key">${el.title}</span>
                     <span class="list-data__value">${el.value}</span>
                   </div>
