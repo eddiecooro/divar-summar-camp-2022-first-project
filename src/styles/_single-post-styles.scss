@@ -152,17 +152,37 @@
     font-size: 1rem;
     font-weight: 400;
     line-height: 2;
-    color: rgba(0, 0, 0, 0.56);
+    // color: rgba(0, 0, 0, 0.56);
     width: 100%;
     overflow-wrap: break-word;
 
   }
+  &__tag-box{
+    margin-top: 16px;
+    text-align: start;
+    width: 100%;
+  }
+  &__tag{
+    display: inline;
+    background-color: rgba(0,0,0,.04);
+    color: rgba(0, 0, 0, 0.56);
+    padding: 0 12px;
+    margin: 8px 0 0 8px;
+    height: 2rem;
+    border-radius: 2px;
+    transition: background-color 0.36s;
+    cursor: pointer;
+    &:hover{
+      background-color: rgba(0,0,0,.12);
+    }
+  }
 
+  //left part
   &__left-box {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    // justify-content: center;
     margin-top: 32px;
     max-width: 50%;
     margin-right: 8%;

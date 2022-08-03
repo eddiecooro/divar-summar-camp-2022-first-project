@@ -20,8 +20,7 @@ fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
     posts.map((el,i)=>{
         let data = el.data
         container = document.querySelector(".browse__posts")
-        let images = data.image_url
-        container.innerHTML += `<a href="#post" class="post no-link-style">
+        container.innerHTML += `<a href="/post.html?post=${data.token}" class="post no-link-style">
         <div class="post__body">
           <h3 class="post__title">
           ${data.title}
