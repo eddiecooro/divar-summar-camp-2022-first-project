@@ -138,6 +138,9 @@
         height: 68px;
         border-radius: 4px;
       }
+      @media screen and (max-width: global.$lg-width) {
+        display: none;
+      }
     }
     .static-container {
       margin-top: 1rem;
