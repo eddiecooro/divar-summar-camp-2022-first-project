@@ -41,6 +41,7 @@ $font-size-normal: 1em;
 @media screen and (max-width: $md-width) {
   .container {
     flex-direction: column;
+    // margin-bottom: 72px !important;
   }
 }
 
@@ -130,7 +131,7 @@ $font-size-normal: 1em;
 
 .button {
   font-weight: 500;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4em 0.8em;
   margin-right: 1px;
   border: 1px solid transparent;
   border-radius: 4px;
@@ -146,8 +147,7 @@ $font-size-normal: 1em;
     vertical-align: middle;
   }
 
-  &__title
-  {
+  &__title {
     overflow: hidden;
     white-space: nowrap;
   }
@@ -159,6 +159,15 @@ $font-size-normal: 1em;
     padding: 0.4rem 0.8rem;
     &:hover {
       background-color: #be3737;
+    }
+  }
+
+  &--circular {
+    padding: 0.7cem !important;
+    border-radius: 50% !important;
+
+    &:hover {
+      background-color: $button-hover-color
     }
   }
 

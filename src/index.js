@@ -60,7 +60,7 @@ window.onload = () => {
             console.log(posts);
             posts.forEach(post => {
                 post = post.data;
-                const element = `<a href="/spost.html" class="post no-link-style">
+                const element = `<a href="/spost.html?token=${post.token}" class="post no-link-style">
                                     <div class="post__body">
                                     <h3 class="post__title">
                                         ${post.title}
