@@ -1,3 +1,4 @@
+@use "global";
 .single-post-container {
   max-width: 1024px;
   margin: 0 auto;
@@ -119,25 +120,13 @@
     line-height: 1.5;
   }
   &__info-row-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
+    @include global.row-container;
   }
   &__info-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 8px 0;
-    width: 100%;
+    @include global.row;
   }
   &__info-row-separator {
-    border: none;
-    height: 1px;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.12);
+    @include global.row-separator;
   }
   &__description {
     width: 100%;
@@ -189,6 +178,10 @@
     width: 100%;
   }
   &__image-container {
+    // height: 150px;
+    // width: 100%;
+    // text-align: center;
+    // background: #acd;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -203,6 +196,9 @@
     }
   }
   &__image {
+    // display: inline-block;
+    // height: 100%;
+    // background: #691;
     width: 100%;
     height: auto;
     max-width: 100%;
@@ -270,8 +266,6 @@
   }
 }
 .bookmarked {
-  
-  filter: invert(40%) sepia(50%) saturate(15000%) hue-rotate(0deg) brightness(100%) contrast(50%);
-
-
+  filter: invert(40%) sepia(50%) saturate(15000%) hue-rotate(0deg)
+    brightness(100%) contrast(50%);
 }

@@ -1,0 +1,21 @@
+@use "global";
+
+.bookmark-page-container {
+  max-width: 1024px;
+  padding: 0 16px;
+  width: 100%;
+  margin: 100px 0;
+}
+.bookmarks {
+  &__info-row-container {
+    @include global.row-container;
+  }
+  &__info-row {
+    @include global.row;
+  }
+  &__info-row-title {
+  }
+  &__info-row-separator {
+    @include global.row-separator;
+  }
+}
