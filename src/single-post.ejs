@@ -423,115 +423,137 @@
       const thumbNailHtml = document.querySelector(".thumb-nail");
       const staticDataHtml = document.querySelector(".static-container");
 
-      getInfo(token).then((res) => {
-        const titleSection = res.sections.find(
-          (el) => el.section_name === "TITLE"
-        ).widgets[0].data;
-        const listData = res.sections.find(
-          (el) => el.section_name === "LIST_DATA"
-        );
-        const rowsData = listData.widgets
-          .filter((el) => el.widget_type === "UNEXPANDABLE_ROW")
-          .map((el) => el.data);
-        const groupInfoTitle = listData.widgets.find(
-          (el) => el.widget_type === "SECTION_TITLE_ROW"
-        ).data.title;
-        const groupInfoRow = listData.widgets.find(
-          (el) => el.widget_type === "GROUP_INFO_ROW"
-        ).data.items;
-        const featureInfo = listData.widgets.find(
-          (el) => el.widget_type === "GROUP_FEATURE_ROW"
-        ).data.items;
+      getInfo(token)
+        .then((res) => {
+          console.log(res);
+          const titleSection = res.sections.find(
+            (el) => el.section_name === "TITLE"
+          ).widgets[0].data;
+          const listData = res.sections.find(
+            (el) => el.section_name === "LIST_DATA"
+          );
+          const rowsData = listData.widgets
+            .filter((el) => el.widget_type === "UNEXPANDABLE_ROW")
+            .map((el) => el.data);
+          const groupInfoTitle = listData.widgets.find(
+            (el) => el.widget_type === "SECTION_TITLE_ROW"
+          )?.data?.title;
+          const groupInfoRow = listData.widgets.find(
+            (el) => el.widget_type === "GROUP_INFO_ROW"
+          )?.data?.items;
+          const featureInfo = listData.widgets.find(
+            (el) => el.widget_type === "GROUP_FEATURE_ROW"
+          )?.data?.items;
 
-        const descriptionInfo = res.sections
-          .find((el) => el.section_name === "DESCRIPTION")
-          .widgets.find((el) => el.widget_type === "DESCRIPTION_ROW").data.text;
+          const descriptionInfo = res.sections
+            .find((el) => el.section_name === "DESCRIPTION")
+            .widgets.find((el) => el.widget_type === "DESCRIPTION_ROW")
+            ?.data?.text;
 
-        const imageInfo = res.sections
-          .find((el) => el.section_name === "IMAGE")
-          .widgets[0].data.items.map((el) => el.image);
+          const imageInfo = res.sections
+            .find((el) => el.section_name === "IMAGE")
+            .widgets[0]?.data?.items.map((el) => el.image);
 
-        const staticInfo = res.sections
-          .find((el) => el.section_name === "STATIC")
-          .widgets.map((el) => el.data);
-        rowsData.map((el) => {
-          rowsHtml.innerHTML += `
-               <div class="info-row">
-                <span class="info-row__key">${el.title}</span>
-                <span class="info-row__value">${el.value}</span>
-              </div>
+          const staticInfo = res.sections
+            .find((el) => el.section_name === "STATIC")
+            ?.widgets.map((el) => el.data);
 
-      `;
-        });
-        groupTitlehtml.innerHTML += `
-        <h2 class="feature-title">
-          ${groupInfoTitle}
-          </h2>
+          if (rowsData) {
+            rowsData.map((el) => {
+              rowsHtml.innerHTML += `
+                   <div class="info-row">
+                    <span class="info-row__key">${el.title}</span>
+                    <span class="info-row__value">${el.value}</span>
+                  </div>
 
-        `;
-        featureInfo.map((el) => {
-          groupFeatureRow.innerHTML += `
-          <div class="group-feature">
-                  <img src='${el.icon.image_url_light}' class="group-feature__img" />
-                  <span class="group-feature__title">${el.title}</span>
-                </div>
           `;
-        });
-
-        titleHtml.innerHTML += `
-              <h2 class="post-detail__title">
-              ${titleSection.title}
+            });
+          }
+          if (groupInfoTitle) {
+            groupTitlehtml.innerHTML += `
+            <h2 class="feature-title">
+              ${groupInfoTitle}
               </h2>
-              <span class="post-detail__time">
-                ${titleSection.subtitle}
-              </span>
-        `;
-        groupInfoRow.map((el) => {
-          groupInfoHtml.innerHTML += `
-          <div class="list-data">
-                <span class="list-data__key">${el.title}</span>
-                <span class="list-data__value">${el.value}</span>
-              </div>
-          `;
-        });
 
-        descriptionHtml.innerHTML += descriptionInfo;
-        imageInfo.map((el, index) => {
-          dotsHtml.innerHTML += `
-                     <span class="dot" onclick="currentSlide(${
-                       index + 1
-                     })"></span>
-          `;
-        });
-        imageInfo.map((el, index) => {
-          sliderHtml.innerHTML += `
-          <div class="mySlides fade">
-                <div class="numbertext">${index + 1} / ${imageInfo.length}</div>
-                <img
-                  src="${el.url}"
-                  alt="${el.alt}""
-                />
-              </div>
+            `;
+          }
+          if (featureInfo) {
+            featureInfo.map((el) => {
+              groupFeatureRow.innerHTML += `
+              <div class="group-feature">
+                      <img src='${el.icon.image_url_light}' class="group-feature__img" />
+                      <span class="group-feature__title">${el.title}</span>
+                    </div>
+              `;
+            });
+          }
+          if (titleHtml) {
+            titleHtml.innerHTML += `
+                  <h2 class="post-detail__title">
+                  ${titleSection.title}
+                  </h2>
+                  <span class="post-detail__time">
+                    ${titleSection.subtitle}
+                  </span>
+            `;
+          }
 
-          `;
-        });
+          if (groupInfoRow) {
+            groupInfoRow.map((el) => {
+              groupInfoHtml.innerHTML += `
+              <div class="list-data">
+                    <span class="list-data__key">${el.title}</span>
+                    <span class="list-data__value">${el.value}</span>
+                  </div>
+              `;
+            });
+          }
+          if (descriptionInfo) {
+            descriptionHtml.innerHTML += descriptionInfo;
+          }
+          if (imageInfo) {
+            imageInfo.map((el, index) => {
+              dotsHtml.innerHTML += `
+                         <span class="dot" onclick="currentSlide(${
+                           index + 1
+                         })"></span>
+              `;
+            });
+            imageInfo.map((el, index) => {
+              sliderHtml.innerHTML += `
+              <div class="mySlides fade">
+                    <div class="numbertext">${index + 1} / ${
+                imageInfo.length
+              }</div>
+                    <img
+                      src="${el.url}"
+                      alt="${el.alt}""
+                    />
+                  </div>
 
-        imageInfo.map((el, index) => {
-          thumbNailHtml.innerHTML += `<img onclick="currentSlide(${
-            index + 1
-          })" src="${el.url}" alt="${el.alt}" class="thumb-nail__img" />`;
-        });
+              `;
+            });
 
-        staticInfo.map(
-          (el) =>
-            (staticDataHtml.innerHTML += `
-          <div class="static-data">
-                <img src="${el.icon.image_url_light}" class="static-data__img" />
-                <span class="static-data__title"> ${el.title}</span>
-              </div>
-          `)
-        );
-      });
+            imageInfo.map((el, index) => {
+              thumbNailHtml.innerHTML += `<img onclick="currentSlide(${
+                index + 1
+              })" src="${el.url}" alt="${el.alt}" class="thumb-nail__img" />`;
+            });
+          }
+
+          if (staticInfo) {
+            staticInfo.map(
+              (el) =>
+                (staticDataHtml.innerHTML += `
+              <div class="static-data">
+                    <img src="${el.icon.image_url_light}" class="static-data__img" />
+                    <span class="static-data__title"> ${el.title}</span>
+                  </div>
+              `)
+            );
+          }
+        })
+        .catch((err) => console.log(err));
 
       var slideIndex = 1;
       showSlides(slideIndex);
@@ -545,22 +567,23 @@
         var i;
         var slides = document.getElementsByClassName("mySlides");
         var dots = document.getElementsByClassName("dot");
-        if (n > slides.length) {
-          slideIndex = 1;
+        if (slides && slides.length > 0) {
+          if (n > slides.length) {
+            slideIndex = 1;
+          }
+          if (n < 1) {
+            slideIndex = slides.length;
+          }
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+          }
+          for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+          }
+          slides[slideIndex - 1].style.display = "block";
+          dots[slideIndex - 1].className += " active";
         }
-        if (n < 1) {
-          slideIndex = slides.length;
-        }
-        for (i = 0; i < slides.length; i++) {
-          slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-          dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
       }
-      // currentSlide(1);
     </script>
   </body>
 </html>

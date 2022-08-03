@@ -37,7 +37,7 @@ $bg-red: #a62626;
   padding: 8px;
 }
 
-@media screen and (max-width: $md-width) {
+@media screen and (max-width: $lg-width) {
   .container {
     flex-direction: column;
     margin-bottom: 72px !important;
