@@ -257,21 +257,7 @@
 
       <div class="container post-page">
         <nav class="post-page__navbar">
-          <ul class="post-page__navbar-container">
-            <li class="post-page__navbar-item">
-              <a>تجهیزات و صنعتی</a>
-              <img class="post-page__navbar-icon" src="<%=require(
-              "./icons/svgs/arrow-left.svg" ).default%>"/>
-            </li>
-            <li class="post-page__navbar-item">
-              <a>عمده فروشی</a>
-              <img class="post-page__navbar-icon" src="<%=require(
-              "./icons/svgs/arrow-left.svg" ).default%>"/>
-            </li>
-            <li class="post-page__navbar-item">
-              <span>خازن و منبع آب / تانکر مخزن پلی اتیلن/ وان</span>
-            </li>
-          </ul>
+          <ul class="post-page__navbar-container"></ul>
         </nav>
         <div class="post-page__content">
           <div class="post-page__details">
@@ -424,6 +410,7 @@
       const thumbNailHtml = document.querySelector(".thumb-nail");
       const staticDataHtml = document.querySelector(".static-container");
       const tagHtml = document.querySelector(".tags-container");
+      const navbarHtml = document.querySelector(".post-page__navbar-container");
 
       getInfo(token)
         .then((res) => {
@@ -463,6 +450,10 @@
           const tagsInfo = res.sections
             .find((el) => el.section_name === "TAGS")
             ?.widgets?.map((el) => el.data.chip_list.chips)[0];
+          const navbarInfo = res.sections.find(
+            (el) => el.section_name === "BREADCRUMB"
+          ).widgets[0].data;
+          console.log(navbarInfo);
 
           if (rowsData) {
             rowsData.map((el) => {
@@ -563,6 +554,20 @@
               console.log(el);
               tagHtml.innerHTML += `<button class="tag">${el.text}</button>`;
             });
+          }
+
+          if (navbarInfo) {
+            navbarInfo.parent_items.map((el) => {
+              navbarHtml.innerHTML += `
+              <li class="post-page__navbar-item">
+              <a>${el.title}</a>
+              <img class="post-page__navbar-icon" src="<%=require(
+              "./icons/svgs/arrow-left.svg" ).default%>"/>
+            </li>
+              `;
+            });
+
+            navbarHtml.innerHTML += `<span class="current_page_title">${navbarInfo.current_page_title}</span>`;
           }
         })
         .catch((err) => console.log(err));

@@ -12,6 +12,7 @@
   }
   &__navbar-container {
     display: flex;
+    align-items: center;
   }
   &__navbar-item {
     font-size: 0.75em;
@@ -39,6 +40,10 @@
       flex-direction: column-reverse;
       align-items: center;
     }
+  }
+  .current_page_title {
+    color: global.$color-primary;
+    font-size: 0.75rem;
   }
   &__details {
     @media only screen and (max-width: global.$lg-width) {
