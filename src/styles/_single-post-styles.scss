@@ -49,6 +49,7 @@
     line-height: 1.5;
   }
   &__author {
+    width: 100%;
     font-size: 1rem;
     font-weight: 400;
     line-height: 2;
@@ -267,4 +268,10 @@
   }
   &__report {
   }
+}
+.bookmarked {
+  
+  filter: invert(40%) sepia(50%) saturate(15000%) hue-rotate(0deg) brightness(100%) contrast(50%);
+
+
 }
