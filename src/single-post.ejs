@@ -315,7 +315,12 @@
               <p class="description__text"></p>
             </div>
           </div>
-          <div class="post-page__info"></div>
+          <div class="post-page__more-info">
+            <div class="slideshow-container">
+              <div class="dots-container" style="text-align: center"></div>
+            </div>
+            <div class="thumb-nail"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -405,7 +410,10 @@
       const groupFeatureRow = document.querySelector(
         ".post-detail__group-feature"
       );
-      const descriptionn = document.querySelector(".description");
+      const sliderHtml = document.querySelector(".slideshow-container");
+      const dotsHtml = document.querySelector(".dots-container");
+      const thumbNailHtml = document.querySelector(".thumb-nail");
+
       getInfo(token).then((res) => {
         console.log(res);
         const titleSection = res.sections.find(
@@ -430,7 +438,12 @@
         const descriptionInfo = res.sections
           .find((el) => el.section_name === "DESCRIPTION")
           .widgets.find((el) => el.widget_type === "DESCRIPTION_ROW").data.text;
-        console.log(descriptionInfo);
+
+        const imageInfo = res.sections
+          .find((el) => el.section_name === "IMAGE")
+          .widgets[0].data.items.map((el) => el.image);
+
+        console.log(imageInfo);
         rowsData.map((el) => {
           rowsHtml.innerHTML += `
                <div class="info-row">
@@ -473,7 +486,61 @@
         });
 
         descriptionHtml.innerHTML += descriptionInfo;
+        imageInfo.map((el, index) => {
+          dotsHtml.innerHTML += `
+                     <span class="dot" onclick="currentSlide(${
+                       index + 1
+                     })"></span>
+          `;
+        });
+        imageInfo.map((el, index) => {
+          sliderHtml.innerHTML += `
+          <div class="mySlides fade">
+                <div class="numbertext">${index + 1} / ${imageInfo.length}</div>
+                <img
+                  src="${el.url}"
+                  alt="${el.alt}""
+                />
+              </div>
+
+          `;
+        });
+
+        imageInfo.map((el, index) => {
+          thumbNailHtml.innerHTML += `<img onclick="currentSlide(${
+            index + 1
+          })" src="${el.url}" alt="${el.alt}" class="thumb-nail__img" />`;
+        });
       });
+
+      var slideIndex = 1;
+      showSlides(slideIndex);
+      function plusSlides(n) {
+        showSlides((slideIndex += n));
+      }
+      function currentSlide(n) {
+        showSlides((slideIndex = n));
+      }
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("mySlides");
+        var dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+          slideIndex = 1;
+        }
+        if (n < 1) {
+          slideIndex = slides.length;
+        }
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+      }
+      // currentSlide(1);
     </script>
   </body>
 </html>

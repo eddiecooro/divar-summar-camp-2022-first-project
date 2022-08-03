@@ -36,7 +36,7 @@
     width: 100%;
     gap: 40px;
     @media only screen and (max-width: global.$lg-width) {
-      flex-direction: column;
+      flex-direction: column-reverse;
       align-items: center;
     }
   }
@@ -53,10 +53,109 @@
     display: flex;
     flex-direction: column;
   }
-  &__info {
+  &__more-info {
+    .dots-container {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 30px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+    }
     width: 500px;
     display: flex;
     flex-direction: column;
+    .mySlides {
+      display: none;
+      img {
+        width: 100%;
+        height: 380px;
+      }
+    }
+    img {
+      vertical-align: middle;
+    }
+    /* Slideshow container */
+    .slideshow-container {
+      width: 100%;
+      position: relative;
+      height: 400px;
+    }
+    /* Next & previous buttons */
+    .prev,
+    .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 16px;
+      margin-top: -22px;
+      color: white;
+      font-weight: bold;
+      font-size: 18px;
+      transition: 0.6s ease;
+      border-radius: 0 3px 3px 0;
+      user-select: none;
+    }
+    /* Position the "next button" to the right */
+    .next {
+      right: 0;
+      border-radius: 3px 0 0 3px;
+    }
+    /* On hover, add a black background color with a little bit seethrough */
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    /* Caption text */
+    .text {
+      color: black;
+      font-size: 15px;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+    }
+    /* Number text (1/3 etc) */
+    .numbertext {
+      color: #f2f2f2;
+      font-size: 12px;
+      padding: 8px 12px;
+      position: absolute;
+      top: 0;
+    }
+    .thumb-nail {
+      display: grid;
+      gap: 6px;
+      align-items: center;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(68px, 1fr));
+      img {
+        cursor: pointer;
+        width: 68px;
+        height: 68px;
+      }
+    }
+    /* The dots/bullets/indicators */
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .active,
+    .dot:hover {
+      background-color: #717171;
+    }
+    @media only screen and (max-width: global.$lg-width) {
+      width: 100%;
+    }
   }
   .button {
     align-items: center;
