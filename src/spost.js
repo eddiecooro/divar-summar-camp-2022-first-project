@@ -209,12 +209,36 @@ const page_layout = fetch(api_url, {
             const main_image = document.getElementById('layout__page-slider');
             const thumbnails = document.getElementById('layout__page-thumbnail');
 
-            const slider_url = layout.image[0].image.url;
-            const slider_img = `<picture class="extra-info__slider-image">
-                                    <source srcset="${slider_url}" />
-                                    <img width="180px" height="100px" src="${slider_url}" alt="${layout.image[0].image.alt}" class="extra-info__slider-image" />
-                                </picture>`;            
-            main_image.insertAdjacentHTML('beforeend', slider_img);
+
+            const images = layout.image.map(el => {
+                return el.image;
+            });
+
+            images.forEach((image, i) => {
+                const slider_element = `<picture class="extra-info__slider-image slider">
+                                        <source srcset="${image.url}" />
+                                        <img src="${image.url}" alt="${image.alt}" class="extra-info__slider-image" />
+                                    </picture>`;
+
+                const thumbnail_element = `<div class="extra-info__thumbnail" onclick="currentSlide(${i + 1})">
+                                                <picture>
+                                                    <source srcset="${image.url}" />
+                                                    <img src="${image.url}" alt="${image.alt}" />
+                                                </picture>
+                                            </div>`;
+
+                
+                main_image.insertAdjacentHTML('beforeend', slider_element);
+                thumbnails.insertAdjacentHTML('beforeend', thumbnail_element);
+
+            });
+            // const slider_img = `<picture class="extra-info__slider-image">
+            //                         <source srcset="${slider_url}" />
+            //                         <img src="${slider_url}" alt="${layout.image[0].image.alt}" class="extra-info__slider-image" />
+            //                     </picture>`;            
+            // main_image.insertAdjacentHTML('beforeend', slider_img);
+
+            // Creating thumbnails
         }
         
         
