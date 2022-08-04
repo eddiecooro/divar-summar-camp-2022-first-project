@@ -63,7 +63,7 @@ if (url.includes("post.html")) {
       console.log(images);
 
       let container = document.querySelector(".single-post-container");
-      container.innerHTML = `
+      container.innerHTML=`
       <main class="single-post">
         <nav class="single-post__breadcrumb">
           <span class="single-post__arrowed-text">
@@ -191,12 +191,12 @@ if (url.includes("post.html")) {
           <hr class="single-post__row-separator iconed-link"/>
           <a class="single-post__safe-buy" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
                 <img class="single-post__safe-buy-icon iconed-link__icon" src="${require("./icons/svgs/info-circle-o.svg").default}" />
-                <span class="single-post__safe-buy-text iconed-link__text">راهنمای خرید امن</span>
+                <span class="single-post__safe-buy-text iconed-link__text">ثبت تخلف و مشکل آگهی</span>
           </a>
           <hr class="single-post__row-separator"/>
         </section>
       </article>
-      </main>`;
+      </main>`.concat(container.innerHTML);
 
       //carousol handler
       let res = document.querySelectorAll(".single-post__thumbnail");

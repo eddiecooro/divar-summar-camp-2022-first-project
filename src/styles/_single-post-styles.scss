@@ -267,11 +267,30 @@
     brightness(100%) contrast(50%);
 }
 .footer{
+  margin-top: 128px;
   width: 100%;
-  display: flex;
+  max-width: 1440px;
   flex-direction: row;
   @media only screen and (max-width: 910px) {
     margin-bottom: 100px;
+}
+&__links{
+  flex-wrap: nowrap;
+  height: 100%;
+}
+&__link{
+  white-space: nowrap;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.32);
+}
+&__col-separator{
+  color: rgba(0, 0, 0, 0.32);
+}
+&__divar-logo{
+  margin-left: 50px;
+  img{
+    height: 100%;
+  }
 }
 &__icons{
   display: flex;
@@ -279,6 +298,6 @@
   // align-items: left;
   justify-content: flex-end;
   width: 100%;
-  margin-top: 16px;
+  margin-top: 0;
 }
 }
