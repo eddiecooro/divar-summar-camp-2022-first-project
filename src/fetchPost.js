@@ -160,22 +160,26 @@ if (url.includes("post.html")) {
           </section>
         </section>
         <section class="single-post__left-box">
-          <section class="single-post__image-container">
+          <section class="single-post__image-container square-image-container">
+          <section class="square-image-container__wrapper">
             <img
-              class="single-post__image"
+              class="square-image-container__image single-post__image"
               src="${images[0].image.url}"
             />
+          </section>
           </section>
           <section class="single-post__thumbnail-container">
             ${images
               .map(
                 (image) => `
-            <div class="single-post__thumbnail">
+            <section class="single-post__thumbnail square-image-container">
+            <div class="square-image-container__wrapper">
               <img
-                class="single-post__thumbnail-image"
+                class="square-image-container__image"
                 src="${image.image.url}"
               />
-            </div>`
+            </div>
+            </section>`
               )
               .join(" ")}
           </section>
