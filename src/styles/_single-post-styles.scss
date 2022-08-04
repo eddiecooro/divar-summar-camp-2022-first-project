@@ -178,37 +178,17 @@
     width: 100%;
   }
   &__image-container {
-    // height: 150px;
-    // width: 100%;
-    // text-align: center;
-    // background: #acd;
-    position: relative;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     width: 100%;
-
-    &::before {
-      content: "";
-      display: block;
-      padding-top: 100%;
-    }
+    aspect-ratio: 1 / 1;
   }
   &__image {
-    // display: inline-block;
-    // height: 100%;
-    // background: #691;
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
     border-radius: 4px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    flex-shrink: 1;
+    min-width: 100%;
+    min-height: 100%;
     object-fit: cover;
   }
   &__thumbnail-container {
@@ -217,7 +197,6 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    // justify-content: center;
     width: 100%;
     margin-top: 16px;
   }
@@ -226,23 +205,16 @@
     width: 14%;
     margin-left: 16px;
     border-radius: 4px;
-    &::before {
-      content: "";
-      display: block;
-      padding-top: 100%;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    aspect-ratio: 1/1;
   }
   &__thumbnail-image {
-    width: 100%;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 4px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
+    flex-shrink: 1;
+    min-width: 100%;
+    min-height: 100%;
     object-fit: cover;
   }
   &__note-container {
@@ -254,11 +226,26 @@
     margin-top: 8px;
   }
   &__note {
+    box-sizing: border-box;
     width: 100%;
     min-height: 7.5rem;
+    border: 1px solid rgba(0, 0, 0, 0.56);
+    border-radius: 4px;
+    padding: 8px 16px;
+    color: rgba(0, 0, 0, 0.87);
+    outline: none;
+    font-size: 1rem;
+    line-height: 2;
+    font-weight: 400;
+    font-family: "IRANSans";
   }
   &__note-warning {
+    margin-top: 4px;
+    font-size: 0.75rem;
+    font-weight: 400;
     margin-bottom: 32px;
+    width: 100%;
+    color: rgba(0, 0, 0, 0.56);
   }
   &__safe-buy {
   }

@@ -2,9 +2,9 @@ import { deepSearchByKey, deepSearchByPair } from "./utils.js";
 let url = window.location.href;
 if (url.includes("post.html")) {
   let url_split = url.split("=");
-  let category = url_split[url_split.length - 1];
+  let postID = url_split[url_split.length - 1];
 
-  fetch(`http://localhost:9000/api/v8/posts-v2/web/${category}`, {
+  fetch(`http://localhost:9000/api/v8/posts-v2/web/${postID}`, {
     headers: {
       accept: "application/json-filled",
       "accept-language": "en-US,en;q=0.9,fa;q=0.8",
@@ -27,6 +27,8 @@ if (url.includes("post.html")) {
     .then((b) => {
       console.log(b);
       let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
+      let notes = JSON.parse(window.localStorage.getItem("notes"));
+
       let bookmarked = false;
       if (bookmarks) {
         for (let i = 0; i < bookmarks.length; i++) {
@@ -35,7 +37,7 @@ if (url.includes("post.html")) {
           }
         }
       }
-      console.log(bookmarked);
+
       let data = b.sections;
       let title = deepSearchByKey(data, "title")["title"];
       let author = deepSearchByKey(data, "subtitle")["subtitle"];
@@ -178,15 +180,13 @@ if (url.includes("post.html")) {
               .join(" ")}
           </section>
           <section class="single-post__note-container">
-            <textarea id="note" class="single-post__note" type="textbox" placeholder="یادداشت">
-            </textarea>
-            <section class="single-post__note-warning">
-
+            <textarea id="note" class="single-post__note" type="textbox" placeholder="یادداشت">${notes?notes[postID]?notes[postID]:"":""}</textarea>
+            <section class="single-post__note-warning">یادداشت تنها برای شما قابل دیدن است و پس از حذف آگهی، پاک خواهد شد.
             </section>
           </section>
-          <button class="single-post__safe-buy">
+          <a class="single-post__safe-buy" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
 
-          </button>
+          </a>
           <button class="single-post__report">
 
           </button>
@@ -194,6 +194,7 @@ if (url.includes("post.html")) {
       </article>
       </main>`;
 
+      //carousol handler
       let res = document.querySelectorAll(".single-post__thumbnail");
       console.log(res);
       res.forEach((element) => {
@@ -204,11 +205,14 @@ if (url.includes("post.html")) {
           image.src = newImage;
         };
       });
+
+      //bookmark handler
       document.querySelector(".single-post__action-bookmark").onclick =
         function () {
-          let bookmarks = JSON.parse(localStorage.getItem("bookmarks"));
+          let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
           let icon = document.querySelector(".single-post__bookmark-icon");
           let bookmarked = false;
+
           if (bookmarks) {
             for (let i = 0; i < bookmarks.length; i++) {
               if (bookmarks[i].url == url) {
@@ -216,6 +220,7 @@ if (url.includes("post.html")) {
               }
             }
           }
+
           if (!icon.classList.contains("bookmarked")) {
             icon.src = require("./icons/svgs/bookmarked.svg").default;
             icon.classList.toggle("bookmarked");
@@ -235,5 +240,15 @@ if (url.includes("post.html")) {
           }
           window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
         };
+
+        document.querySelector(".single-post__note").onchange = function(event) {
+          let notes = JSON.parse(window.localStorage.getItem("notes"));
+          let note = document.querySelector(".single-post__note").value;
+          if(!notes){
+            notes = {}
+          }
+          notes[postID] = note
+          window.localStorage.setItem("notes", JSON.stringify(notes));
+        }
     });
 }
