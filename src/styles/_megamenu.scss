@@ -7,10 +7,15 @@
   position:relative;
   z-index: 2;
 
-  &:not(:hover) > .megamenu{
+  & > .megamenu {
     display: none;
   }
+
+  // &:not(:hover) > .megamenu{
+  //   display: none;
+  // }
 }
+
 .megamenu-button{
     position: relative;
     background-color: white;
@@ -20,9 +25,9 @@
     &:hover{
       background-color:rgba(0, 0, 0, 0.04);
     }
-    &:hover + .megamenu{
-      display:flex;
-    }
+    // &:hover + .megamenu{
+    //   display:flex;
+    // }
 
 }
 .megamenu {
