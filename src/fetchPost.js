@@ -127,7 +127,7 @@ if (url.includes("post.html")) {
           </section>`
               : ""
           }
-          <hr class="single-post__info-row-separator"/>
+          <hr class="single-post__row-separator"/>
           <section class="single-post__info-row-container">
           ${rows
             .map(
@@ -138,7 +138,7 @@ if (url.includes("post.html")) {
               >${item.data.value}</span
             >
           </section>
-          <hr class="single-post__info-row-separator"/>`
+          <hr class="single-post__row-separator"/>`
             )
             .join(" ")}
           </section>
@@ -184,12 +184,16 @@ if (url.includes("post.html")) {
             <section class="single-post__note-warning">یادداشت تنها برای شما قابل دیدن است و پس از حذف آگهی، پاک خواهد شد.
             </section>
           </section>
-          <a class="single-post__safe-buy" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
-
+          <a class="single-post__safe-buy iconed-link" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
+                <img class="single-post__safe-buy-icon iconed-link__icon" src="${require("./icons/svgs/check-circle-o.svg").default}" />
+                <span class="single-post__safe-buy-text iconed-link__text">راهنمای خرید امن</span>
           </a>
-          <button class="single-post__report">
-
-          </button>
+          <hr class="single-post__row-separator iconed-link"/>
+          <a class="single-post__safe-buy" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
+                <img class="single-post__safe-buy-icon iconed-link__icon" src="${require("./icons/svgs/info-circle-o.svg").default}" />
+                <span class="single-post__safe-buy-text iconed-link__text">راهنمای خرید امن</span>
+          </a>
+          <hr class="single-post__row-separator"/>
         </section>
       </article>
       </main>`;

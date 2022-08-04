@@ -219,3 +219,15 @@ $font-size-filter: 0.75em;
     border: 0;
   }
 }
+.iconded-link{
+    text-decoration: none;
+    width: 100%;
+    padding: 8px 0;
+  &__icon{
+    vertical-align: middle;
+  }
+  &__text{
+    color: rgba(0, 0, 0, 0.56);
+    font-size: 0.875rem;
+  }
+}
