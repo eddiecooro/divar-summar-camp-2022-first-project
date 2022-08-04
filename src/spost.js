@@ -8,11 +8,30 @@ const params = Object.fromEntries(urlSearchParams.entries());
 
 const api_url = `http://localhost:9000/api/v8/posts-v2/web/${params.token}`;
 
-function save_note_for_this_post() {
-    const textarea_element = document.getElementById('post-note');
-    const note_value = textarea_element.vaule;
+function cat_onClick(e) {
+    e.stopPropagation();
+    const menu = document.querySelector('section.megamenu');
+    const container = document.querySelector('div#overlay');
+    menu.classList.toggle('megamenu-clicked');
+    container.classList.toggle('not-clickable');
+}
 
-    console.log(note_value);
+function button_onClick(e) {
+    e.stopPropagation();
+    const menu = document.querySelector('section.megamenu');
+    const container = document.querySelector('div#overlay');
+    container.classList.remove('not-clickable');
+    menu.classList.remove('megamenu-clicked');
+}
+
+
+window.onload = () => {
+    let slideIndex = 1;
+    showSlides(slideIndex);
+    load_post_for_this_post(params.token);
+    const megamenu_button = document.querySelector('button.megamenu-button');
+    megamenu_button.onclick = cat_onClick;
+    document.onclick = button_onClick;
 }
 
 const page_layout = fetch(api_url, {
@@ -232,13 +251,6 @@ const page_layout = fetch(api_url, {
                 thumbnails.insertAdjacentHTML('beforeend', thumbnail_element);
 
             });
-            // const slider_img = `<picture class="extra-info__slider-image">
-            //                         <source srcset="${slider_url}" />
-            //                         <img src="${slider_url}" alt="${layout.image[0].image.alt}" class="extra-info__slider-image" />
-            //                     </picture>`;            
-            // main_image.insertAdjacentHTML('beforeend', slider_img);
-
-            // Creating thumbnails
         }
         
         

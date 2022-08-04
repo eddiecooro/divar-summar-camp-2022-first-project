@@ -46,6 +46,14 @@
     width: 32px;
 }
 
+.display--none {
+    display: none !important;
+}
+
+.display--block {
+    display: block !important;
+}
+
 .post {
     &-container {
         font-size: 16px;

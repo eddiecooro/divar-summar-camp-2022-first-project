@@ -206,3 +206,24 @@ $font-size-normal: 1em;
       border: 0;
   }
 }
+
+
+.megamenu-clicked {
+  display: flex !important;
+}
+
+#overlay {
+  top: 0;
+  left: 0;
+  z-index: 4;
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: none;
+  transition: opacity .2s ease-out;
+}
+
+.not-clickable {
+  display: block !important;
+}

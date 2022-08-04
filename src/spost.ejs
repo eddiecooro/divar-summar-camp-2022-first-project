@@ -25,7 +25,7 @@
             const textarea_element = document.getElementById('post-note');
             const note_value = textarea_element.value;
 
-            console.log(note_value);
+            // console.log(note_value);
 
             localStorage.setItem(params.token, note_value);
         }
@@ -33,7 +33,7 @@
         function load_post_for_this_post(token) {
             const textarea_element = document.getElementById('post-note');
             value = localStorage.getItem(token);
-            console.log(value);
+            // console.log(value);
             textarea_element.innerHTML = value;
         }
 
@@ -51,25 +51,21 @@
         }
 
         function showSlides(n) {
-        let i;
-        let slides = document.getElementsByClassName("slider");
-        let dots = document.getElementsByClassName("extra-info__thumbnail");
-        if (n > slides.length) {slideIndex = 1}
-        if (n < 1) {slideIndex = slides.length}
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
+            let i;
+            let slides = document.getElementsByClassName("slider");
+            let thumbnails = document.getElementsByClassName("extra-info__thumbnail");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < thumbnails.length; i++) {
+                console.log(thumbnails[i].className);
+                thumbnails[i].className = thumbnails[i].className.replace(" extra-info__thumbnail--active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            thumbnails[slideIndex-1].className += " extra-info__thumbnail--active";
         }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" extra-info__thumbnail--active", "");
-        }
-        slides[slideIndex-1].style.display = "block";
-        dots[slideIndex-1].className += " extra-info__thumbnail--active";
-        }
-        
-        window.onload = () => {
-            let slideIndex = 1;
-            showSlides(slideIndex);
-            load_post_for_this_post(params.token);        }
     </script>
   </head>
 
@@ -332,25 +328,6 @@
             <div class="post-main__extra-info flex flex--column flex--col-6 flex--offset-1">
                 <div class="extra-info__gallery">
                     <div id="layout__page-slider" class="extra-info__slider">
-                        <!-- <picture class="extra-info__slider-image slider">
-                            <source srcset="https://s101.divarcdn.com/static/pictures/1659356193/gYnP8cOF.jpg" />
-                            <img src="https://s101.divarcdn.com/static/pictures/1659356193/gYnP8cOF.jpg" alt="" class="extra-info__slider-image" />
-                        </picture>
-
-                        <picture class="extra-info__slider-image slider">
-                            <source srcset="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.2.jpg" />
-                            <img src="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.2.jpg" alt="" class="extra-info__slider-image"/>
-                        </picture>
-
-                        <picture class="extra-info__slider-image slider">
-                            <source srcset="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.1.jpg" />
-                            <img src="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.1.jpg" alt="" class="extra-info__slider-image"/>
-                        </picture>
-
-                        <picture class="extra-info__slider-image slider">
-                            <source srcset="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.3.jpg" />
-                            <img src="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.3.jpg" alt="" class="extra-info__slider-image"/>
-                        </picture> -->
                     </div>
 
                     <a class="slider--prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -360,30 +337,6 @@
 
 
                     <div id="layout__page-thumbnail" class="extra-info__thumbnails flex flex--row">
-                        <!-- <div class="extra-info__thumbnail" onclick="currentSlide(1)">
-                            <picture>
-                                <source srcset="https://s101.divarcdn.com/static/pictures/1659356193/gYnP8cOF.jpg" />
-                                <img src="https://s101.divarcdn.com/static/pictures/1659356193/gYnP8cOF.jpg" alt="" />
-                            </picture>
-                        </div>
-                        <div class="extra-info__thumbnail" onclick="currentSlide(2)">
-                            <picture>
-                                <source srcset="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.2.jpg" />
-                                <img src="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.2.jpg" alt="" />
-                            </picture>
-                        </div>
-                        <div class="extra-info__thumbnail" onclick="currentSlide(3)">
-                            <picture>
-                                <source srcset="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.1.jpg" />
-                                <img src="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.1.jpg" alt="" />
-                            </picture>
-                        </div>
-                        <div class="extra-info__thumbnail" onclick="currentSlide(4)">
-                            <picture>
-                                <source srcset="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.3.jpg" />
-                                <img src="https://s101.divarcdn.com/static/pictures/1659607509/gYrjZQyY.3.jpg" alt="" />
-                            </picture>
-                        </div> -->
                     </div>
                 </div>
                 <div class="extra-info__note">
@@ -428,7 +381,7 @@
         </footer>
         </main>
       </div>
-<!-- 
+
       <footer class="page-footer">
         <button class="page-footer__button page-footer__button--vertical footer-button">
           <i class="footer-button__logo">
@@ -472,7 +425,7 @@
             دیوار من
           </span>
         </button>
-      </footer> -->
+      </footer>
     </div>
   </body>
 
