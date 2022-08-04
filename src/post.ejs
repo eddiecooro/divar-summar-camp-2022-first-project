@@ -4,11 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <style>
+    <style>
       :root {
         display: none;
       }
-    </style> -->
+    </style>
     <link
       rel="icon"
       type="image/png"
@@ -22,7 +22,6 @@
       دیوار تهران: مرجع انواع نیازمندی و آگهی‌های نو و دست دو در شهر تهران
     </title>
   </head>
-  <!-- <img src="<%=require( "./icons/svgs/building-o.svg"  ).default%>"/> -->
 
   <body dir="rtl">
     <div id="root">
@@ -287,172 +286,6 @@
           </section>
         </footer>
       </div>
-      <!-- <aside class="sidebar">
-          <section class="categories contributor contributor--arsalan">
-            <h2 class="categories__title">دسته ها</h2>
-            <ul class="categories__container">
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/home-o.svg"  ).default%>"/>
-                  املاک
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/car-body-o.svg"  ).default%>"/>
-                  وسایل نقلیه
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/cellphone-iphone-o.svg"  ).default%>"/>
-                  کالای دیجیتال
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/lamp-o.svg"  ).default%>"/>
-                  خانه و آشپزخانه
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/paint-brush-o.svg"  ).default%>"/>
-                  خدمات
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/watch-o.svg"  ).default%>"/>
-                  وسایل شخصی
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/dice-multiple-o.svg"  ).default%>"/>
-                  سرگرمی و فراغت
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/account-multiple-o.svg"  ).default%>"/>
-
-                  اجتماعی
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/chair-rolling-o.svg"  ).default%>"/>
-                  تجهیزات و صنعتی
-                </a>
-              </li>
-              <li class="categories__item">
-                <a class="categories__header">
-                  <img class="categories__icon" src="<%=require( "./icons/svgs/briefcase-o.svg"  ).default%>"/>
-
-                  استخدام و کاریابی
-                </a>
-              </li>
-            </ul>
-          </section>
-          <section class="filter contributor contributor--milad">
-            <details class="filter__detail">
-              <summary class="filter__summary">
-                <img class="filter__icon icon" src="<%=require( "./icons/svgs/arrow-down.svg"  ).default%>"/>
-                محل
-              </summary>
-              <div class="filter__content">
-                <button class="filter__button actionable-button actionable-button--normal">
-                  <span class="actionable-button__label">تعیین محل</span>
-                  <img class="actionable-button__icon icon align-left" src="<%=require( "./icons/svgs/arrow-left.svg"  ).default%>"/>
-                </button>
-              </div>
-            </details>
-            <details class="filter__detail">
-              <summary class="filter__summary">
-                <img class="filter__icon icon" src="<%=require( "./icons/svgs/arrow-down.svg"  ).default%>"/>
-                قیمت
-              </summary>
-              <div class="filter__content">
-                <div class="filter__labels">
-                  <label class="filter__button-label" for="min-cost-button">حداقل</label>
-                  <div class="seperator--vertical"></div>
-                  <label class="filter__button-label" for="max-cost-button">حداکثر</label>
-                </div>
-                <div class="filter__controls">
-                  <button id="min-cost-button" class="filter__button actionable-button actionable-button--normal">
-                    <span class="actionable-button__label">مثلا ۷۰۰۰۰۰۰۰ تومان</span>
-                    <img class="actionable-button__icon icon align-left" src="<%=require( "./icons/svgs/arrow-left.svg"  ).default%>"/>
-                  </button>
-                  <button id="max-cost-button" class="filter__button actionable-button actionable-button--normal">
-                    <span class="actionable-button__label">مثلا ۷۰۰۰۰۰۰۰ تومان</span>
-                    <img class="actionable-button__icon icon align-left" src="<%=require( "./icons/svgs/arrow-left.svg"  ).default%>"/>
-                  </button>
-                </div>
-              </div>
-            </details>
-            <details class="filter__detail">
-              <summary class="filter__summary">
-                <img class="filter__icon icon" src="<%=require( "./icons/svgs/arrow-down.svg"  ).default%>"/>
-                وضعیت آگهی
-              </summary>
-              <div class="filter__content">
-                <div class="filter__toggle">
-                  <label class="filter__toggle-label" for="with-photos-only">فقط عکس‌دار</label>
-                  <input type="checkbox" id="with-photos-only" class="filter__checkbox">
-                </div>
-                <div class="filter__toggle">
-                  <label class="filter__toggle-label" for="urgents-only">فقط فوری‌ها</label>
-                  <input type="checkbox" id="urgents-only" class="filter__checkbox">
-                </div>
-              </div>
-            </details>
-          </section>
-          <footer class="footer">
-            <section class="footer__links">
-              <a href="#" class="footer__link link_disabled">درباره دیوار</a>
-              <a href="#" class="footer__link link_disabled">دریافت دیوار</a>
-              <a href="#" class="footer__link link_disabled">بلاگ دیوار</a>
-              <a href="#" class="footer__link link_disabled">پشتیبانی</a>
-            </section>
-            <section class="footer__icons">
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/aparat.svg"  ).default%>"/></a>
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/linkedin.svg" ).default%>"/></a>
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/instagram.svg"  ).default%>"/></a>
-              <a href="#" class="link_disabled"><img class="footer__icon icon" src="<%=require( "./icons/svgs/twitter.svg" ).default%>"/></a>
-            </section>
-          </footer>
-        </aside> -->
-      <!-- </div>
-       <a href="#post" class="post no-link-style">
-        <div class="post__body">
-          <h3 class="post__title">
-            آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-            آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-            آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب آپارتمان 82متر دو خواب
-          </h3>
-          <p class="post__price">۳۷۵,۰۰۰,۰۰۰ تومان</p>
-          <p class="post__author">آژانس املاک در ستارخان</p>
-        </div>
-
-        <picture class="post__picture">
-          <source srcset="https://via.placeholder.com/380x137" />
-          <img
-            width="180px"
-            height="100px"
-            src="https://via.placeholder.com/180x100"
-            class="post__img"
-          />
-        </picture>
-      </a>
-      <button
-        onclick="document.documentElement.classList.toggle('contributors-visible')"
-        class="contributors-toggle"
-      >
-        Show contributors
-      </button>
-    </div> -->
-
       <footer class="page-footer">
         <button
           class="page-footer__button page-footer__button--vertical footer-button"

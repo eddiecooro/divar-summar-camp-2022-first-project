@@ -189,13 +189,13 @@ if (url.includes("post.html")) {
             </section>
           </section>
           <a class="single-post__safe-buy iconed-link" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
-                <img class="single-post__safe-buy-icon iconed-link__icon" src="${require("./icons/svgs/check-circle-o.svg").default}" />
-                <span class="single-post__safe-buy-text iconed-link__text">راهنمای خرید امن</span>
+                <img class="iconed-link__icon" src="${require("./icons/svgs/check-circle-o.svg").default}" />
+                <span class="iconed-link__text">راهنمای خرید امن</span>
           </a>
-          <hr class="single-post__row-separator iconed-link"/>
-          <a class="single-post__safe-buy" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
-                <img class="single-post__safe-buy-icon iconed-link__icon" src="${require("./icons/svgs/info-circle-o.svg").default}" />
-                <span class="single-post__safe-buy-text iconed-link__text">ثبت تخلف و مشکل آگهی</span>
+          <hr class="single-post__row-separator"/>
+          <a class="single-post__report iconed-link" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
+                <img class="iconed-link__icon" src="${require("./icons/svgs/info-circle-o.svg").default}" />
+                <span class="iconed-link__text">ثبت تخلف و مشکل آگهی</span>
           </a>
           <hr class="single-post__row-separator"/>
         </section>
