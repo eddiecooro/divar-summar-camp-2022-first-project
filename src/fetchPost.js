@@ -63,7 +63,7 @@ if (url.includes("post.html")) {
       console.log(images);
 
       let container = document.querySelector(".single-post-container");
-      container.innerHTML=`
+      container.innerHTML = `
       <main class="single-post">
         <nav class="single-post__breadcrumb">
           <span class="single-post__arrowed-text">
@@ -184,17 +184,23 @@ if (url.includes("post.html")) {
               .join(" ")}
           </section>
           <section class="single-post__note-container">
-            <textarea id="note" class="single-post__note" type="textbox" placeholder="یادداشت">${notes?notes[postID]?notes[postID]:"":""}</textarea>
+            <textarea id="note" class="single-post__note" type="textbox" placeholder="یادداشت">${
+              notes ? (notes[postID] ? notes[postID] : "") : ""
+            }</textarea>
             <section class="single-post__note-warning">یادداشت تنها برای شما قابل دیدن است و پس از حذف آگهی، پاک خواهد شد.
             </section>
           </section>
           <a class="single-post__safe-buy iconed-link" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
-                <img class="iconed-link__icon" src="${require("./icons/svgs/check-circle-o.svg").default}" />
+                <img class="iconed-link__icon" src="${
+                  require("./icons/svgs/check-circle-o.svg").default
+                }" />
                 <span class="iconed-link__text">راهنمای خرید امن</span>
           </a>
           <hr class="single-post__row-separator"/>
           <a class="single-post__report iconed-link" href="https://support.divar.ir/b/support-users/fa/kb/articles/article-46">
-                <img class="iconed-link__icon" src="${require("./icons/svgs/info-circle-o.svg").default}" />
+                <img class="iconed-link__icon" src="${
+                  require("./icons/svgs/info-circle-o.svg").default
+                }" />
                 <span class="iconed-link__text">ثبت تخلف و مشکل آگهی</span>
           </a>
           <hr class="single-post__row-separator"/>
@@ -249,14 +255,36 @@ if (url.includes("post.html")) {
           window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
         };
 
-        document.querySelector(".single-post__note").onchange = function(event) {
-          let notes = JSON.parse(window.localStorage.getItem("notes"));
-          let note = document.querySelector(".single-post__note").value;
-          if(!notes){
-            notes = {}
-          }
-          notes[postID] = note
-          window.localStorage.setItem("notes", JSON.stringify(notes));
+      document.querySelector(".single-post__note").onchange = function (event) {
+        let notes = JSON.parse(window.localStorage.getItem("notes"));
+        let note = document.querySelector(".single-post__note").value;
+        if (!notes) {
+          notes = {};
         }
+        notes[postID] = note;
+        window.localStorage.setItem("notes", JSON.stringify(notes));
+      };
+      document.querySelector(".single-post__action-share").onclick =
+        function () {
+          navigator.clipboard.writeText(url).then(
+            function () {
+              document
+                .querySelector(".single-post__action-share")
+                .animate(
+                  [
+                    { transform: "scale(1)" },
+                    { transform: "scale(0.5)" },
+                    { transform: "scale(1)" },
+                  ],
+                  {
+                    duration: 400,
+                    iterations: 1,
+                  }
+                );
+            },
+            function () {
+            }
+          );
+        };
     });
 }
