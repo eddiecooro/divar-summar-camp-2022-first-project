@@ -1,0 +1,46 @@
+@use 'global';
+
+.breadcrump {
+    display: flex;
+    justify-content: right;
+    flex-grow: 1;
+    width: 100%;
+    padding: 2rem 1rem;
+    &__list {
+        list-style: none;
+        display: flex;
+    }
+}
+
+.breadcrump-item {
+    display: flex;
+    align-items: baseline;
+    cursor: pointer;
+    color: global.$color-primary;
+
+    &:hover {
+        color: lighten($color: black, $amount: 30%);
+    }
+
+    &__text {
+        font-size: 0.8rem;
+        margin-left: 0.3rem;
+    }
+
+    &__arrow {
+        transition: transform 0.5s ease;
+        margin: 0 0.25rem;
+        &--spin {
+            display: inline-block;
+            transform: rotate(180deg);  
+            transition: transform 0.5s ease;
+            margin: 0 0.25rem;
+        }
+    }
+
+    &__arrow:hover {
+        display: inline-block;
+        transform: rotate(180deg);            
+    }
+
+}

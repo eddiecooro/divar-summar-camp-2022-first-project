@@ -84,6 +84,7 @@ $font-size-filter: 0.75em;
 }
 
 .contributor--sara {
+  width: 100%;
   &::after {
     content: "Sara";
     font-size: 100px;
@@ -122,11 +123,20 @@ $font-size-filter: 0.75em;
   }
 }
 
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
 
 .button {
+  border-radius: 5px;
   &:hover {
     background-color: $button-hover-color;
-    border-radius: 5px;
   }
 
   &__icon{
@@ -140,6 +150,10 @@ $font-size-filter: 0.75em;
   {
     overflow: hidden;
     white-space: nowrap;
+  }
+
+  &--circular {
+    border-radius: 5rem;
   }
 
   &--primary {
@@ -164,10 +178,25 @@ $font-size-filter: 0.75em;
     }
   }
 
+  &--active {
+    background-color: $button-hover-color;
+  }
+
   &--icon {
       display: flex;
       align-items: center;
       flex-direction: row;
       border: 0;
   }
+}
+
+.hidden { 
+  display: none !important;
+}
+
+.divider {
+  box-sizing: border-box;
+  background-color: $border-gray;
+  height: 1px;
+  border: none;
 }
