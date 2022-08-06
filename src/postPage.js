@@ -285,7 +285,7 @@ function attachGroupPairs(items) {
 
 function loadPage() {
   const idQuery = document.URL.split("id=").at(-1);
-  const query = `http://192.168.1.52:9000/api/v8/posts-v2/web/${idQuery}`;
+  const query = `http://localhost:9000/api/v8/posts-v2/web/${idQuery}`;
   fetch(query, {
     headers: {
       accept: "application/json-filled",
