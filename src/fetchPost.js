@@ -42,6 +42,9 @@ if (url.includes("post.html")) {
       let title = deepSearchByKey(data, "title")["title"];
       let author = deepSearchByKey(data, "subtitle")["subtitle"];
       let chips = deepSearchByKey(data, "chips")["chips"];
+      let breadcrumb = deepSearchByPair(data, "widget_type", "BREADCRUMB")[0][
+        "data"
+      ]["parent_items"];
       let infobox = null;
       try {
         infobox = deepSearchByPair(data, "widget_type", "GROUP_INFO_ROW")[0][
@@ -56,30 +59,30 @@ if (url.includes("post.html")) {
         "DESCRIPTION_ROW"
       )[0]["data"]["text"];
       description = description.replaceAll("\n", "<br/>");
-      let hasImage = deepSearchByPair(data, "widget_type", "IMAGE_CAROUSEL").length>0;
-      let images = hasImage?deepSearchByPair(data, "widget_type", "IMAGE_CAROUSEL")[0][
-        "data"
-      ]["items"]:[];
+
+      let hasImage =
+        deepSearchByPair(data, "widget_type", "IMAGE_CAROUSEL").length > 0;
+      let images = hasImage
+        ? deepSearchByPair(data, "widget_type", "IMAGE_CAROUSEL")[0]["data"][
+            "items"
+          ]
+        : [];
 
       let container = document.querySelector(".single-post-container");
       container.innerHTML = `
       <main class="single-post">
         <nav class="single-post__breadcrumb">
-          <span class="single-post__arrowed-text">
-            املاک <img class="single-post__arrow"src="${
-              require("./icons/svgs/chevron-left.svg").default
-            }"/>
-          </span>
-          <span class="single-post__arrowed-text">
-            فروش مسکونی <img class="single-post__arrow"src="${
-              require("./icons/svgs/chevron-left.svg").default
-            }"/>
-          </span>
-          <span class="single-post__arrowed-text">
-            آپارتمان <img class="single-post__arrow"src="${
-              require("./icons/svgs/chevron-left.svg").default
-            }"/>
-          </span>
+          ${breadcrumb
+            .map((item) => {
+              return `
+          <span class="single-post__arrowed-text"> ${
+            item.title
+          } <img class="single-post__arrow"src="${
+                require("./icons/svgs/chevron-left.svg").default
+              }"/>
+          </span>`;
+            })
+            .join("")}
         </nav>
         <article class="single-post__main-content">
         <section class="single-post__right-box">
@@ -161,15 +164,19 @@ if (url.includes("post.html")) {
           </section>
         </section>
         <section class="single-post__left-box">
-          <section class="single-post__image-container square-image-container ${!hasImage?"hidden":""}">
+          <section class="single-post__image-container square-image-container ${
+            !hasImage ? "hidden" : ""
+          }">
           <section class="square-image-container__wrapper">
             <img
               class="square-image-container__image single-post__image"
-              src="${hasImage?images[0].image.url:""}"
+              src="${hasImage ? images[0].image.url : ""}"
             />
           </section>
           </section>
-          <section class="single-post__thumbnail-container ${!hasImage?"hidden":""}">
+          <section class="single-post__thumbnail-container ${
+            !hasImage ? "hidden" : ""
+          }">
             ${images
               .map(
                 (image) => `
@@ -211,12 +218,10 @@ if (url.includes("post.html")) {
 
       //carousol handler
       let res = document.querySelectorAll(".single-post__thumbnail");
-      console.log(res);
       res.forEach((element) => {
         element.onclick = function (event) {
           const image = document.querySelector(".single-post__image");
           const newImage = event.target.src;
-          console.log(newImage);
           image.src = newImage;
         };
       });
@@ -273,7 +278,6 @@ if (url.includes("post.html")) {
 
       //contact handler
       document.querySelector("#contact-info").onclick = function () {
-        console.log("contact");
         fetch(`https://api.divar.ir/v5/posts/${postID}/contact/`, {
           headers: {
             accept: "application/json, text/plain, */*",
