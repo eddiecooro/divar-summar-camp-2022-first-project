@@ -15,6 +15,13 @@ document.addEventListener('click', function(event){
     }
 })
 
+function profileClickHandler(event){
+    const profile = document.querySelector('.header-navbar__profile-container');
+    profile.style.visibility = profile.style.visibility==='visible'? 'hidden':'visible';
+    event.stopPropagation()
+}
+document.querySelector("#profile-button").addEventListener('click', profileClickHandler);
+
 export function deepSearchByKey(object, originalKey, matches = []) {
 
     if(object != null) {
