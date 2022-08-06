@@ -56,11 +56,10 @@ if (url.includes("post.html")) {
         "DESCRIPTION_ROW"
       )[0]["data"]["text"];
       description = description.replaceAll("\n", "<br/>");
-      let images = deepSearchByPair(data, "widget_type", "IMAGE_CAROUSEL")[0][
+      let hasImage = deepSearchByPair(data, "widget_type", "IMAGE_CAROUSEL").length>0;
+      let images = hasImage?deepSearchByPair(data, "widget_type", "IMAGE_CAROUSEL")[0][
         "data"
-      ]["items"];
-
-      console.log(images);
+      ]["items"]:[];
 
       let container = document.querySelector(".single-post-container");
       container.innerHTML = `
@@ -162,15 +161,15 @@ if (url.includes("post.html")) {
           </section>
         </section>
         <section class="single-post__left-box">
-          <section class="single-post__image-container square-image-container">
+          <section class="single-post__image-container square-image-container ${!hasImage?"hidden":""}">
           <section class="square-image-container__wrapper">
             <img
               class="square-image-container__image single-post__image"
-              src="${images[0].image.url}"
+              src="${hasImage?images[0].image.url:""}"
             />
           </section>
           </section>
-          <section class="single-post__thumbnail-container">
+          <section class="single-post__thumbnail-container ${!hasImage?"hidden":""}">
             ${images
               .map(
                 (image) => `
