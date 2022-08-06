@@ -123,6 +123,12 @@
   &__info-row {
     @include global.row;
   }
+  &__info-row-title {
+    @include global.row-title;
+  }
+  &__info-row-value {
+    @include global.row-value;
+  }
   &__row-separator {
     @include global.row-separator;
   }
@@ -219,4 +225,52 @@
     width: 100%;
     color: rgba(0, 0, 0, 0.56);
   }
+
+  //contact box
+  &__contact-info-container{
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    margin: 8px 0;
+    transition: height 0.36s ease-in-out;
+  }
+  &__contact-info{
+    @include global.row;
+  }
+  &__contact-info-title{
+    @include global.row-title;
+  }
+  &__contact-info-value{
+    @include global.row-value;
+    margin-right: auto;
+    color: #a62626;
+  }
+  &__contact-copy-button{
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  &__contact-warning{
+    background-color: #f0faff;
+    color: rgba(0, 0, 0, 0.56);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  &__contact-warning-title{
+    font-size: 0.75rem;
+    font-weight: 500;
+    line-height: 2;
+  }
+  &__contact-warning-text{
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 2;
+    margin: 4px 0 6px;
+  }
+
 }

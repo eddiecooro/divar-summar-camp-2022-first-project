@@ -91,7 +91,7 @@ if (url.includes("post.html")) {
             ${author}
           </section>
           <section class="single-post__actions">
-            <button class="single-post__action-button button button--primary">
+            <button id="contact-info" class="single-post__action-button button button--primary">
               <span class="button__title"> اطلاعات تماس </span>
             </button>
             <button class="single-post__action-button button button--secondary">
@@ -111,6 +111,8 @@ if (url.includes("post.html")) {
                 require("./icons/svgs/share-variant-o.svg").default
               }"/>
             </button>
+          </section>
+          <section class="single-post__contact-info-container height-0">
           </section>
           ${
             infobox !== null
@@ -255,6 +257,7 @@ if (url.includes("post.html")) {
           window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
         };
 
+      //note handler
       document.querySelector(".single-post__note").onchange = function (event) {
         let notes = JSON.parse(window.localStorage.getItem("notes"));
         let note = document.querySelector(".single-post__note").value;
@@ -264,27 +267,96 @@ if (url.includes("post.html")) {
         notes[postID] = note;
         window.localStorage.setItem("notes", JSON.stringify(notes));
       };
+
+      //share handler
       document.querySelector(".single-post__action-share").onclick =
-        function () {
-          navigator.clipboard.writeText(url).then(
+        copyHandler(document.querySelector(".single-post__action-share"), url);
+
+      //contact handler
+      document.querySelector("#contact-info").onclick = function () {
+        console.log("contact");
+        fetch(`https://api.divar.ir/v5/posts/${postID}/contact/`, {
+          headers: {
+            accept: "application/json, text/plain, */*",
+            "accept-language": "en-US,en;q=0.9,fa;q=0.8",
+            authorization:
+              "Basic eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyIjoiMDkzOTUzOTc2ODgiLCJpc3MiOiJhdXRoIiwidmVyaWZpZWRfdGltZSI6MTY1OTc1NTIwOSwiaWF0IjoxNjU5NzU1MjA5LCJleHAiOjE2NjEwNTEyMDksInVzZXItdHlwZSI6InBlcnNvbmFsIiwidXNlci10eXBlLWZhIjoiXHUwNjdlXHUwNjQ2XHUwNjQ0IFx1MDYzNFx1MDYyZVx1MDYzNVx1MDZjYyIsInNpZCI6IjdhNjFmYTE5LWZiZWQtNDA3MS1iNzk2LWZiMzU5N2M1YjNlYSJ9.arFV4Uc7Yt6V-WrE9Y0IFaqh-rM4iVhxE8NE7Q6E1jA",
+            "sec-ch-ua":
+              '" Not;A Brand";v="99", "Microsoft Edge";v="103", "Chromium";v="103"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Linux"',
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-site",
+          },
+          referrer: "https://divar.ir/",
+          referrerPolicy: "origin",
+          body: null,
+          method: "GET",
+          mode: "cors",
+          credentials: "include",
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            let phone = data.widgets.contact.phone;
+            let container = document.querySelector(
+              ".single-post__contact-info-container"
+            );
+            container.innerHTML = `
+        <section class="single-post__contact-info">
+          <span class="single-post__contact-info-title">شماره موبایل</span>
+          <a class="single-post__contact-info-value" herf="tel:${phone}">${phone.replace(
+              /\d/g,
+              (d) => "۰۱۲۳۴۵۶۷۸۹"[d]
+            )}</a>
+          <button class="single-post__contact-copy-button button button--icon ">
+            <img class="single-post__bookmark-icon" src="${
+              require("./icons/svgs/content-copy-o.svg").default
+            }"/>
+          </button>
+        </section>
+        <section class="single-post__contact-warning">
+          <strong class="single-post__contact-warning-title">
+          هشدار پلیس
+          </strong>
+          <p class="single-post__contact-warning-text">
+          لطفاً پیش از انجام معامله و هر نوع پرداخت وجه، از صحت کالا یا خدمات ارائه‌شده، به‌صورت حضوری اطمینان حاصل نمایید.
+          </p>
+        </section>
+        `.concat(container.innerHTML);
+            let contactButton = document.querySelector("#contact-info");
+            contactButton.disabled = true;
+            contactButton.classList.add("button--disabled");
+            let copyButton = document.querySelector(
+              ".single-post__contact-copy-button"
+            );
+            copyButton.onclick = copyHandler(copyButton, phone);
+            container.classList.remove("height-0");
+          });
+      };
+
+      //copy handler helper function
+      function copyHandler(element, text) {
+        return function () {
+          navigator.clipboard.writeText(text).then(
             function () {
-              document
-                .querySelector(".single-post__action-share")
-                .animate(
-                  [
-                    { transform: "scale(1)" },
-                    { transform: "scale(0.5)" },
-                    { transform: "scale(1)" },
-                  ],
-                  {
-                    duration: 400,
-                    iterations: 1,
-                  }
-                );
+              element.animate(
+                [
+                  { transform: "scale(1)" },
+                  { transform: "scale(0.5)" },
+                  { transform: "scale(1)" },
+                ],
+                {
+                  duration: 400,
+                  iterations: 1,
+                }
+              );
             },
-            function () {
-            }
+            function () {}
           );
         };
+      }
     });
 }
