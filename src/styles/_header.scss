@@ -8,7 +8,9 @@
   top: 0;
   background-color: white;
   border-bottom: 1px solid rgb(0 0 0 / 12%);
+  height: 64px;
   &__navbar {
+    height: 100%;
     display: flex;
     justify-content: right;
     padding: 0 1rem;

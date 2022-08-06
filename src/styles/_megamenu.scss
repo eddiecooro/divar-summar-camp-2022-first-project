@@ -5,11 +5,11 @@
 }
 .megamenu-wrapper{
   position:relative;
-  z-index: 2;
+  z-index: 12;
 
-  &:not(:hover) > .megamenu{
-    display: none;
-  }
+  // &:not(:hover) > .megamenu{
+  //   display: none;
+  // }
 }
 .megamenu-button{
     position: relative;
@@ -17,14 +17,21 @@
     border-radius: 5px;
     // width: 100px;
     // height: 45px;
-    &:hover{
-      background-color:rgba(0, 0, 0, 0.04);
-    }
-    &:hover + .megamenu{
-      display:flex;
-    }
+    // &:hover{
+    //   background-color:rgba(0, 0, 0, 0.04);
+    // }
+    // &:hover + .megamenu{
+    //   display:flex;
+    // }
 
 }
+  .megamenu-shade{
+    position: absolute;
+    width: 100%;
+    height: 200vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
 .megamenu {
   position: absolute;
   width: 70vw;
@@ -123,6 +130,9 @@
     text-align: left;
     color: rgba(0, 0, 0, 0.56);
   }
+}
+.hidden{
+  display: none;
 }
 
 //moved button to global to create shared heirarchy with other buttons
