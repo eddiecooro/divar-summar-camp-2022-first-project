@@ -33,11 +33,7 @@
     }
 
     &__image {
-        >img {
-            width: min-content;
-            max-width: 100%;
-            border-radius: 5px;
-        }
+        margin-bottom: 1rem;
     }
 }
 
@@ -96,6 +92,7 @@
 
 .post-description {
     margin: 0.8rem 0;
+    padding: 0 1rem;
     &__title {
         font-size: 1.2rem;
     }
@@ -140,11 +137,13 @@
 .pair {
     &__title
     {
+        text-align: center;
         font-size: 0.9rem;
         margin-bottom: 0.3rem;
     }
     &__text {
         font-weight: bold;
+        text-align: center;
     }
     display: flex;
     align-items: center;
@@ -155,6 +154,27 @@
     }
 }
 
-.column-info {
-
+.square-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &::before {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+    }
+    &__wrapper {
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    &__image {
+        border-radius: 5px;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }

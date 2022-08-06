@@ -136,13 +136,18 @@ function getImage(data) {
 }
 
 function setImage(url, alt) {
-  const image = document.getElementsByClassName("product__image")[0];
-  const img = document.createElement("img");
+  if(url.trim() === '') {
+    const imageView = document.getElementsByClassName('product__image')[0];
+    imageView.classList.add('hidden');
+    return;
+  }
 
+  const image = document.getElementsByClassName("square-image__wrapper")[0];
+  const img = document.createElement("img");
+  img.classList.add("square-image__image");
   img.setAttribute("src", url);
   img.setAttribute("alt", alt);
-
-  image.prepend(img);
+  image.appendChild(img);
 }
 
 function getPairs(data) {
@@ -280,7 +285,7 @@ function attachGroupPairs(items) {
 
 function loadPage() {
   const idQuery = document.URL.split("id=").at(-1);
-  const query = `http://localhost:9000/api/v8/posts-v2/web/${idQuery}`;
+  const query = `http://192.168.1.52:9000/api/v8/posts-v2/web/${idQuery}`;
   fetch(query, {
     headers: {
       accept: "application/json-filled",
@@ -309,8 +314,8 @@ function loadPage() {
       attachTitle(title, sub);
       document.title = title === "" ? "Post" : title;
 
-      const [imageUrl, imageAlt] = getImage(data);
-      setImage(imageUrl, imageAlt);
+       const [imageUrl, imageAlt] = getImage(data);
+       setImage(imageUrl, imageAlt);
 
       const pairs = getPairs(data);
       const pairNodes = createPairs(pairs);

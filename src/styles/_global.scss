@@ -190,6 +190,10 @@ $font-size-filter: 0.75em;
   }
 }
 
+.hidden { 
+  display: none !important;
+}
+
 .divider {
   box-sizing: border-box;
   background-color: $border-gray;
