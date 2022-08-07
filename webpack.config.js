@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
-let htmlPageNames = ['post','bookmark'];
+let htmlPageNames = ['post','bookmark',"notes"];
 let multipleHtmlPlugins = htmlPageNames.map(name => {
   return new HtmlWebpackPlugin({
     template: `./src/${name}.ejs`, // relative path to the HTML files
@@ -12,7 +12,7 @@ let multipleHtmlPlugins = htmlPageNames.map(name => {
 
 module.exports = {
   mode: "development",
-  entry: { index: "./src/index.js", post: "./src/post.js", bookmark: "./src/bookmark.js" },
+  entry: { index: "./src/index.js", post: "./src/post.js", bookmark: "./src/bookmark.js" , notes: "./src/notes.js" },
   devtool: "source-map",
   devServer: {
     static: {
