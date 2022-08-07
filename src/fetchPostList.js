@@ -1,4 +1,6 @@
-fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
+import consts from "./consts";
+
+fetch(`${consts.APIURL}/v8/web-search/1/ROOT`, {
   "headers": {
     "accept": "application/json, text/plain, */*",
     "accept-language": "en-US,en;q=0.9,fa;q=0.8",

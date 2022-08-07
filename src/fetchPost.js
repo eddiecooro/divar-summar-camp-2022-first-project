@@ -1,10 +1,10 @@
 import { deepSearchByKey, deepSearchByPair } from "./utils.js";
-let url = window.location.href;
-if (url.includes("post.html")) {
-  let url_split = url.split("=");
-  let postID = url_split[url_split.length - 1];
-
-  fetch(`http://localhost:9000/api/v8/posts-v2/web/${postID}`, {
+import consts from "./consts.js";
+let url = new URL(window.location.href);
+let params = (new URL(document.location)).searchParams
+if (url.pathname ==="/post.html") {
+  let postID = params.get('post');
+  fetch(`${consts.APIURL}/v8/posts-v2/web/${postID}`, {
     headers: {
       accept: "application/json-filled",
       "accept-language": "en-US,en;q=0.9,fa;q=0.8",
@@ -278,7 +278,7 @@ if (url.includes("post.html")) {
 
       //contact handler
       document.querySelector("#contact-info").onclick = function () {
-        fetch(`https://api.divar.ir/v5/posts/${postID}/contact/`, {
+        fetch(`${consts.APIURL}/v5/posts/${postID}/contact/`, {
           headers: {
             accept: "application/json, text/plain, */*",
             "accept-language": "en-US,en;q=0.9,fa;q=0.8",
