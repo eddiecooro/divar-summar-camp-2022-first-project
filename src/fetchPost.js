@@ -1,9 +1,9 @@
 import { deepSearchByKey, deepSearchByPair } from "./utils.js";
 import consts from "./consts.js";
 let url = new URL(window.location.href);
-let params = (new URL(document.location)).searchParams
-if (url.pathname ==="/post.html") {
-  let postID = params.get('post');
+let params = new URL(document.location).searchParams;
+if (url.pathname === "/post.html") {
+  let postID = params.get("post");
   fetch(`${consts.APIURL}/v8/posts-v2/web/${postID}`, {
     headers: {
       accept: "application/json-filled",
@@ -26,18 +26,8 @@ if (url.pathname ==="/post.html") {
     .then((r) => r.json())
     .then((b) => {
       console.log(b);
-      let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
       let notes = JSON.parse(window.localStorage.getItem("notes"));
-
-      let bookmarked = false;
-      if (bookmarks) {
-        for (let i = 0; i < bookmarks.length; i++) {
-          if (bookmarks[i].id == postID) {
-            bookmarked = true;
-          }
-        }
-      }
-
+      let bookmarked = checkBookmarked(postID)
       let data = b.sections;
       let title = deepSearchByKey(data, "title")["title"];
       let author = deepSearchByKey(data, "subtitle")["subtitle"];
@@ -99,14 +89,14 @@ if (url.pathname ==="/post.html") {
             <button class="single-post__action-button button button--secondary">
               <span class="button__title"> چت </span>
             </button>
-            <button class="single-post__action-bookmark ${
-              bookmarked ? "bookmarked " : ""
-            }button button--icon">
-              <img class="single-post__bookmark-icon" src="${
-                bookmarked
-                  ? require("./icons/svgs/bookmarked.svg").default
-                  : require("./icons/svgs/bookmark-o.svg").default
-              }"/>
+            <button class="single-post__action-bookmark button button--icon">
+              <img class="single-post__bookmark-icon ${
+                bookmarked ? "bookmarked " : ""
+              }" src="${
+        bookmarked
+          ? require("./icons/svgs/bookmarked.svg").default
+          : require("./icons/svgs/bookmark-o.svg").default
+      }"/>
             </button>
             <button class="single-post__action-share button button--icon">
               <img class="single-post__share-icon" src="${
@@ -229,21 +219,13 @@ if (url.pathname ==="/post.html") {
       //bookmark handler
       document.querySelector(".single-post__action-bookmark").onclick =
         function () {
-          let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
           let icon = document.querySelector(".single-post__bookmark-icon");
-          let bookmarked = false;
+          let bookmarked = checkBookmarked(postID);
+          let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
 
-          if (bookmarks) {
-            for (let i = 0; i < bookmarks.length; i++) {
-              if (bookmarks[i].id == postID) {
-                bookmarked = true;
-              }
-            }
-          }
-
-          if (!icon.classList.contains("bookmarked")) {
+          if (!bookmarked) {
             icon.src = require("./icons/svgs/bookmarked.svg").default;
-            icon.classList.toggle("bookmarked");
+            icon.classList.add("bookmarked");
             if (!bookmarked) {
               if (Array.isArray(bookmarks)) {
                 bookmarks.push({ title: title, id: postID });
@@ -253,7 +235,7 @@ if (url.pathname ==="/post.html") {
             }
           } else {
             icon.src = require("./icons/svgs/bookmark-o.svg").default;
-            icon.classList.toggle("bookmarked");
+            icon.classList.remove("bookmarked");
             if (Array.isArray(bookmarks) && bookmarked) {
               bookmarks = bookmarks.filter((item) => item.id !== postID);
             }
@@ -360,6 +342,20 @@ if (url.pathname ==="/post.html") {
             function () {}
           );
         };
+      }
+
+      //checkbookmarked helper function
+      function checkBookmarked(postID) {
+        let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
+        let bookmarked = false;
+        if (bookmarks) {
+          for (let i = 0; i < bookmarks.length; i++) {
+            if (bookmarks[i].id == postID) {
+              bookmarked = true;
+            }
+          }
+        }
+        return bookmarked;
       }
     });
 }
