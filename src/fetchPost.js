@@ -209,16 +209,17 @@ if (url.pathname === "/post.html") {
       //carousol handler
       let res = document.querySelectorAll(".single-post__thumbnail");
       res.forEach((element) => {
-        element.onclick = function (event) {
+        element.addEventListener("click", function (event) {
           const image = document.querySelector(".single-post__image");
           const newImage = event.target.src;
           image.src = newImage;
-        };
+        });
       });
 
       //bookmark handler
-      document.querySelector(".single-post__action-bookmark").onclick =
-        function () {
+      document
+        .querySelector(".single-post__action-bookmark")
+        .addEventListener("click", function () {
           let icon = document.querySelector(".single-post__bookmark-icon");
           let bookmarked = checkBookmarked(postID);
           let bookmarks =
@@ -238,7 +239,7 @@ if (url.pathname === "/post.html") {
             }
           }
           window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
-        };
+        });
 
       //note handler
       document.querySelector(".single-post__note").onchange = function (event) {
@@ -249,11 +250,11 @@ if (url.pathname === "/post.html") {
       };
 
       //share handler
-      document.querySelector(".single-post__action-share").onclick =
-        copyHandler(document.querySelector(".single-post__action-share"), url);
+      document.querySelector(".single-post__action-share").addEventListener("click",
+        copyHandler(document.querySelector(".single-post__action-share"), url))
 
       //contact handler
-      document.querySelector("#contact-info").onclick = function () {
+      document.querySelector("#contact-info").addEventListener("click",function () {
         fetch(`${consts.APIURL}/v5/posts/${postID}/contact/`, {
           headers: {
             accept: "application/json, text/plain, */*",
@@ -311,10 +312,10 @@ if (url.pathname === "/post.html") {
             let copyButton = document.querySelector(
               ".single-post__contact-copy-button"
             );
-            copyButton.onclick = copyHandler(copyButton, phone);
+            copyButton.addEventListener("click", copyHandler(copyButton, phone))
             container.classList.remove("height-0");
           });
-      };
+      })
 
       //copy handler helper function
       function copyHandler(element, text) {
