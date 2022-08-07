@@ -21,7 +21,7 @@ fetch(`${consts.APIURL}/v8/web-search/1/ROOT`, {
 }).then((res)=>res.json()).then((c)=>c.web_widgets.post_list).then((posts)=>{
     posts.map((el,i)=>{
         let data = el.data
-        container = document.querySelector(".browse__posts")
+        let container = document.querySelector(".browse__posts")
         container.innerHTML += `<a href="/post.html?post=${data.token}" class="post no-link-style">
         <div class="post__body">
           <h3 class="post__title">

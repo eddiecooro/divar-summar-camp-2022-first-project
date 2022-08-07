@@ -32,7 +32,7 @@ if (url.pathname ==="/post.html") {
       let bookmarked = false;
       if (bookmarks) {
         for (let i = 0; i < bookmarks.length; i++) {
-          if (bookmarks[i].url == url) {
+          if (bookmarks[i].id == postID) {
             bookmarked = true;
           }
         }
@@ -235,7 +235,7 @@ if (url.pathname ==="/post.html") {
 
           if (bookmarks) {
             for (let i = 0; i < bookmarks.length; i++) {
-              if (bookmarks[i].url == url) {
+              if (bookmarks[i].id == postID) {
                 bookmarked = true;
               }
             }
@@ -246,16 +246,16 @@ if (url.pathname ==="/post.html") {
             icon.classList.toggle("bookmarked");
             if (!bookmarked) {
               if (Array.isArray(bookmarks)) {
-                bookmarks.push({ title: title, url: url });
+                bookmarks.push({ title: title, id: postID });
               } else {
-                bookmarks = [{ title: title, url: url }];
+                bookmarks = [{ title: title, id: postID }];
               }
             }
           } else {
             icon.src = require("./icons/svgs/bookmark-o.svg").default;
             icon.classList.toggle("bookmarked");
             if (Array.isArray(bookmarks) && bookmarked) {
-              bookmarks = bookmarks.filter((item) => item.url !== url);
+              bookmarks = bookmarks.filter((item) => item.id !== postID);
             }
           }
           window.localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
