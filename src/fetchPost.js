@@ -1,4 +1,4 @@
-import { deepSearchByKey, deepSearchByPair } from "./utils.js";
+import { deepSearchByKey, deepSearchByPair, safeParseJson } from "./utils.js";
 import consts from "./consts.js";
 let url = new URL(window.location.href);
 let params = new URL(document.location).searchParams;
@@ -26,8 +26,8 @@ if (url.pathname === "/post.html") {
     .then((r) => r.json())
     .then((b) => {
       console.log(b);
-      let notes = JSON.parse(window.localStorage.getItem("notes"));
-      let bookmarked = checkBookmarked(postID)
+      let notes = safeParseJson(window.localStorage.getItem("notes")) || {};
+      let bookmarked = checkBookmarked(postID);
       let data = b.sections;
       let title = deepSearchByKey(data, "title")["title"];
       let author = deepSearchByKey(data, "subtitle")["subtitle"];
@@ -221,17 +221,14 @@ if (url.pathname === "/post.html") {
         function () {
           let icon = document.querySelector(".single-post__bookmark-icon");
           let bookmarked = checkBookmarked(postID);
-          let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
+          let bookmarks =
+            safeParseJson(window.localStorage.getItem("bookmarks")) || [];
 
           if (!bookmarked) {
             icon.src = require("./icons/svgs/bookmarked.svg").default;
             icon.classList.add("bookmarked");
             if (!bookmarked) {
-              if (Array.isArray(bookmarks)) {
-                bookmarks.push({ title: title, id: postID });
-              } else {
-                bookmarks = [{ title: title, id: postID }];
-              }
+              bookmarks.push({ title: title, id: postID });
             }
           } else {
             icon.src = require("./icons/svgs/bookmark-o.svg").default;
@@ -245,11 +242,8 @@ if (url.pathname === "/post.html") {
 
       //note handler
       document.querySelector(".single-post__note").onchange = function (event) {
-        let notes = JSON.parse(window.localStorage.getItem("notes"));
+        let notes = safeParseJson(window.localStorage.getItem("notes")) || {};
         let note = document.querySelector(".single-post__note").value;
-        if (!notes) {
-          notes = {};
-        }
         notes[postID] = note;
         window.localStorage.setItem("notes", JSON.stringify(notes));
       };
@@ -346,13 +340,12 @@ if (url.pathname === "/post.html") {
 
       //checkbookmarked helper function
       function checkBookmarked(postID) {
-        let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
+        let bookmarks =
+          safeParseJson(window.localStorage.getItem("bookmarks")) || [];
         let bookmarked = false;
-        if (bookmarks) {
-          for (let i = 0; i < bookmarks.length; i++) {
-            if (bookmarks[i].id == postID) {
-              bookmarked = true;
-            }
+        for (let i = 0; i < bookmarks.length; i++) {
+          if (bookmarks[i].id == postID) {
+            bookmarked = true;
           }
         }
         return bookmarked;

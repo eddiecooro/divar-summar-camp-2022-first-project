@@ -67,3 +67,10 @@ export function deepSearchByPair(object, originalKey, originalValue,matches = []
     }
     return matches;
 }
+export function safeParseJson(json) {
+    try {
+        return JSON.parse(json);
+    } catch (e) {
+        return {};
+    }
+}

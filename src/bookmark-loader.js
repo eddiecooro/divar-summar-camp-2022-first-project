@@ -1,6 +1,7 @@
 import consts from "./consts";
+import { safeParseJson } from "./utils";
 
-let bookmarks = JSON.parse(window.localStorage.getItem("bookmarks"));
+let bookmarks = safeParseJson(window.localStorage.getItem("bookmarks"))||[];
 let rows = bookmarks.map((b) => ({ title: b.title, url: b.url }));
 let container = document.querySelector(".bookmark-page-container");
 console.log(rows);
