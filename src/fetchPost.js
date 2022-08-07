@@ -58,9 +58,8 @@ if (url.pathname === "/post.html") {
           ]
         : [];
 
-      let container = document.querySelector(".single-post-container");
+      let container = document.querySelector(".single-post");
       container.innerHTML = `
-      <main class="single-post">
         <nav class="single-post__breadcrumb">
           ${breadcrumb
             .map((item) => {
@@ -203,8 +202,7 @@ if (url.pathname === "/post.html") {
           </a>
           <hr class="single-post__row-separator"/>
         </section>
-      </article>
-      </main>`.concat(container.innerHTML);
+      </article>`;
 
       //carousol handler
       let res = document.querySelectorAll(".single-post__thumbnail");
