@@ -7,9 +7,9 @@
   position:relative;
   z-index: 2;
 
-  &:not(:hover) > .megamenu{
-    display: none;
-  }
+  // &:not(:hover) > .megamenu{
+  //   display: none;
+  // }
 }
 .megamenu-button{
     position: relative;
@@ -20,12 +20,14 @@
     &:hover{
       background-color:rgba(0, 0, 0, 0.04);
     }
-    &:hover + .megamenu{
-      display:flex;
-    }
+    // &:hover + .megamenu{
+    //   display:flex;
+    // }
 
 }
+
 .megamenu {
+ 
   position: absolute;
   width: 70vw;
   right: 0px;
@@ -34,11 +36,15 @@
   border-radius: 4px;
   box-shadow: 0 2px 3px 0 #000000;
   // font-size: 0.85rem;
-  display: flex;
+  // display: flex;
   padding: 30px;
   padding-bottom: 60px;
   min-height: 496px;
   max-height: 520px;
+  display: flex;
+  &--hidden{
+    display: none;
+  }
 
   &__aside {
     padding-left: 15px;
