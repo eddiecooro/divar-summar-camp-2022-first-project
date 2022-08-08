@@ -247,8 +247,8 @@
         <div class="single-post">
             <main>
                 <nav>
-                    <ol class="breadcrumbs">
-                        <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/s/tehran/real-estate"></a>
+                    <ol class="breadcrumbs" id="breadcrumbs">
+                        <!-- <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/s/tehran/real-estate"></a>
                             <p>املاک </p></a><i class="breadcrumbs__icon"><img
                                     src="<%=require( "./icons/svgs/chevron-left.svg"  ).default%>" /></i>
                         </li>
@@ -264,23 +264,21 @@
                                 آپارتمان
                             </p></a><i class="breadcrumbs__icon"><img
                                     src="<%=require( "./icons/svgs/chevron-left.svg"  ).default%>" /></i>
-                        </li>
+                        </li> -->
                         <li class="breadcrumbs__item"><span class="breadcrumbs__link">
-                            <p>
-                                ۱۵۰ متر ،سعادت
-                                آباد-مروارید،سازنده بنام
-                            </p>
-                          </span><i class="breadcrumbs__icon"></i></li>
+                                <p id="breadcrumbsTitle">
+
+                                </p>
+                            </span><i class="breadcrumbs__icon"></i></li>
                     </ol>
                 </nav>
                 <section class="single-post__main " id="browse">
                     <div class="single-post__side single-post__side--right  post-detail">
-                        <h2 class="post-detail__title">
-                            ۱۵۰ متر ،سعادت آباد-مروارید،سازنده بنام
+                        <h2 class="post-detail__title" id="title">
+
                         </h2>
-                        <p class="post-detail__summary">
-                            نیم ساعت پیش در تهران، سعادت‌آباد، میدان طهرانی مقدم (کاج) (بلوار سعادت آباد) | فروش
-                            آپارتمان
+                        <p class="post-detail__summary" id="subtitle">
+
                         </p>
                         <div class="post-communication">
                             <button class="post-communication__call">
@@ -298,33 +296,28 @@
                         <div class="post-features">
                             <div class="post-features__feature">
                                 <p class="post-features__feature-name">متراژ</p>
-                                <p class="post-features__feature-detail">52</p>
+                                <p class="post-features__feature-detail" id="meter"></p>
                             </div>
                             <div class="post-features__feature">
                                 <p class="post-features__feature-name">ساخت</p>
-                                <p class="post-features__feature-detail">1400</p>
+                                <p class="post-features__feature-detail" id="year"></p>
                             </div>
                             <div class="post-features__feature post-features__feature--no-border">
                                 <p class="post-features__feature-name">اتاق</p>
-                                <p class="post-features__feature-detail">1</p>
+                                <p class="post-features__feature-detail" id="room"></p>
                             </div>
                         </div>
                         <hr class="single-post__divider">
-                        <div class="post-inline-feature">
-                            <p class="post-inline-feature__title">
-                                قیمت کل
-                            </p>
-                            <p class="post-inline-feature__value">
-                                ۳٬۳۸۰٬۰۰۰٬۰۰۰ تومان
-                            </p>
-                        </div class="single-post__divider">
-                        <hr>
+                        <div id="unexpectable">
+
+                        </div>
+                        <!-- <hr class="single-post__divider">
                         <div class="post-inline-feature">
                             <p class="post-inline-feature__title">
                                 قیمت هر متر
                             </p>
-                            <p class="post-inline-feature__value">
-                                ۶۵٬۰۰۰٬۰۰۰ تومان
+                            <p class="post-inline-feature__value" id="meterPrice">
+
                             </p>
                         </div>
                         <hr class="single-post__divider">
@@ -332,8 +325,8 @@
                             <p class="post-inline-feature__title">
                                 آژانس املاک
                             </p>
-                            <p class="post-inline-feature__value">
-                                املاک بزرگ آرکا (شعبه تجاری)
+                            <p class="post-inline-feature__value" id="amlak">
+
                             </p>
                         </div>
                         <hr class="single-post__divider">
@@ -344,21 +337,21 @@
                             <p class="post-inline-feature__value">
                                 5
                             </p>
-                        </div>
-                        <hr class="single-post__divider">
+                        </div> -->
+                        <!-- <hr class="single-post__divider"> -->
                         <p class="single-post__facilities-title">ویژگی‌ها و امکانات</p>
                         <div class="post-facilites">
-                            <div class="post-facilites__facility">
+                            <div class="post-facilites__facility" id="elevator">
                                 <i class="post-facilites__icon"><img
                                         src="<%=require( "./icons/svgs/elevator-o.svg"  ).default%>" alt=""></i>
                                 <p class="post-facilites__label">آسانسور</p>
                             </div>
-                            <div class="post-facilites__facility">
+                            <div class="post-facilites__facility" id="parking">
                                 <i class="post-facilites__icon"><img
                                         src="<%=require( "./icons/svgs/car-o.svg"  ).default%>" alt=""></i>
                                 <p class="post-facilites__label">پارکینگ</p>
                             </div>
-                            <div class="post-facilites__facility post-facilites__facility--no-border ">
+                            <div class="post-facilites__facility post-facilites__facility--no-border " id="warehouse">
                                 <i class="post-facilites__icon"><img
                                         src="<%=require( "./icons/svgs/cabinet-o.svg"  ).default%>" alt=""></i>
                                 <p class="post-facilites__label">انباری</p>
@@ -368,91 +361,39 @@
                             <p class="post_description__title">
                                 توضیحات
                             </p>
-                            <p class="post_description__detail">
-                                ⁦⚜نویدی دیگر از حاج رحیم قربانی ⁦⚜
+                            <p class="post_description__detail" id="description">
 
-                                ⭐ پروژه‌ی تکرار نشدنی نشاط⭐
-
-                                ⭕امکانات رفاهی مجموعه⭕
-
-                                ✅- لابی لاکچری و بی نظیر با مساحت ۱۰۰۰ متر
-
-                                ✅- لابی من و لابی وُمن ۲۴ ساعته طبقه پنجم
-
-                                ✅- تیم نگهبانی و حراست
-
-                                ✅- 7 لاین آسانسور
-
-                                ✅- تالار تشریفاتی برای برگزاری مراسمات و میهمانی
-
-                                ✅- باشگاه بدن سازی آقایان و بانوان
-
-                                ✅- سالن بازی کودکان
-
-                                ✅- اتاق مانیتورینگ
-
-                                ✅ -کلوپ بیلیارد
-
-                                دسترسی آسان به مراکز خرید و بزرگراهای(سیمون بولیوار،اشرفی اصفهانی ،نیایش )
-
-                                ⭐⭐«اعتبار ما سال‌ها تجربه در امور ساخت و ساز⭐⭐
-                                ⭐⭐و خرید و فروش ملک در پایتخت است»⭐⭐
-
-                                ⁦✳️⁩به دلیل نشست مستقیم با سازنده⁦✳️⁩
-                                قیمت و شرایت پرداخت توافقی و قابل مذاکره
-
-                                ⁦✳️⁩دفتر فروش مستقیم سازنده⁦✳️⁩
-
-                                مدیر فروش پروژه‌ی «نشاط»
-
-                                09127357249☎️
-                                09127357249☎️
                             </p>
                         </div>
                     </div>
                     <div class="single-post__side single-post__side--left">
-                        <section class="carousel" aria-label="carousel" Tabindex="0">
-
-                            <a class="carousel__skip-link" href="#skip-link">Skip the Carousel</a>
-
-                            <div class="slides">
-                                <div class="slides-item slide-1" id="slide-1" tabindex="0">
-                                    <img src="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg" alt=""
-                                        class="post-slideshow__image">
-
-                                </div>
-                                <div class="slides-item slide-2" id="slide-2" tabindex="0">
-                                    <img src="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg" alt=""
-                                        class="post-slideshow__image">
-                                </div>
-                                <div class="slides-item slide-3" id="slide-3" tabindex="0">
-                                    <img src="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg" alt=""
-                                        class="post-slideshow__image">
-                                </div>
-                                <div class="slides-item slide-4" id="slide-4" tabindex="0">
-                                    <img src="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg" alt=""
-                                        class="post-slideshow__image">
-                                </div>
-                                <div class="slides-item slide-5" id="slide-5" tabindex="0">
-                                    <img src="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg" alt=""
-                                        class="post-slideshow__image">
-                                </div>
-
+                        <div class="slideshow" id="slideshow">
+                            <!-- <div class="slideshow__slides fade">
+                                <img src="https://www.tutorialspoint.com/images/logo.png" class="slideshow__img">
                             </div>
 
-                            <div class="carousel__nav">
-                                <a class="slider-nav" href="#slide-1"></a>
-                                <a class="slider-nav" href="#slide-2"></a>
-                                <a class="slider-nav" href="#slide-3"></a>
-                                <a class="slider-nav" href="#slide-4"></a>
-                                <a class="slider-nav" href="#slide-5"></a>
+                            <div class="slideshow__slides fade">
+
+                                <img src="https://www.tutorialspoint.com/assets/questions/media/64678/5.png"
+                                    class="slideshow__img">
                             </div>
+                            <div class="slideshow__slides fade">
+                                <img src="https://www.tutorialspoint.com/about/images/about.jpg"
+                                    class="slideshow__img">>
 
-                            <div class="carousel__skip-message" id="skip-link" tabindex="0"></div>
-                        </section>
+                            </div> -->
+                            <!-- <a class="slideshow__arrow slideshow__arrow--next" onclick="plusSlides(-1)">❮</a>
+                            <a class="slideshow__arrow slideshow__arrow--prev" onclick="plusSlides(1)">❯</a> -->
+                        </div>
+                        <br>
+                        <div class="slideshow-dots" id="dots">
+                            <!-- <span class="slideshow-dots__dot" onclick="currentSlide(1)"></span>
+                            <span class="slideshow-dots__dot" onclick="currentSlide(2)"></span>
+                            <span class="slideshow-dots__dot" onclick="currentSlide(3)"></span> -->
+                        </div>
 
-                        <div class="single-post__images post-image">
-                            <picture class="post-image__single-image">
+                        <div class="single-post__images post-image" id="thumbnail">
+                            <!-- <picture class="post-image__single-image">
                                 <source srcset="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg">
                                 <img class="post-image__single-image"
                                     src="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg" alt="">
@@ -481,7 +422,7 @@
                                 <source srcset="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg">
                                 <img class="post-image__single-image"
                                     src="https://s101.divarcdn.com/static/pictures/1659434373/gY4Oy7PF.jpg" alt="">
-                            </picture>
+                            </picture> -->
 
                         </div>
 
@@ -606,5 +547,131 @@
             </button>
         </footer>
 </body>
+<script>
+    function plusSlides(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("slideshow__slides");
+        var dots = document.getElementsByClassName("slideshow-dots__dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const token = urlParams.get('token')
+    console.log(token);
+    fetch(`http://localhost:9000/api/v8/posts-v2/web/${token}`, {
+            headers: {
+                accept: "application/json-filled",
+                "accept-language": "en-US,en;q=0.9,fa;q=0.8",
+                "sec-ch-ua": '" Not;A Brand";v="99", "Microsoft Edge";v="103", "Chromium";v="103"',
+                "sec-ch-ua-mobile": "?0",
+                "sec-ch-ua-platform": '"Linux"',
+                "sec-fetch-dest": "empty",
+                "sec-fetch-mode": "cors",
+                "sec-fetch-site": "same-site",
+            },
+            referrer: "https://divar.ir/",
+            referrerPolicy: "origin",
+            body: null,
+            method: "GET",
+            mode: "cors",
+            credentials: "omit",
+        }).then((response) => response.json())
+        .then((data) => {
+            console.log(data)
+            document.getElementById("breadcrumbsTitle").innerText = data["sections"][1]["widgets"][0]["data"][
+                "title"
+            ];
+            document.getElementById("title").innerText = data["sections"][1]["widgets"][0]["data"]["title"];
+            document.getElementById("subtitle").innerText = data["sections"][1]["widgets"][0]["data"]["subtitle"];
+            document.getElementById("description").innerText = data["sections"][3]["widgets"][1]["data"]["text"];
+            document.getElementById("meter").innerText = data["sections"][8]["widgets"][0]["data"]["items"][0]
+                .value;
+            document.getElementById("year").innerText = data["sections"][8]["widgets"][0]["data"]["items"][1].value;
+            document.getElementById("room").innerText = data["sections"][8]["widgets"][0]["data"]["items"][2].value;
+            const breadcrumbs_data = data["sections"][6]["widgets"][0]["data"]["parent_items"];
+            console.log(breadcrumbs_data)
+            breadcrumbs_data.reverse().forEach(element => {
+                let temp = document.getElementById("breadcrumbs").innerHTML
+                document.getElementById("breadcrumbs").innerHTML = ` <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/s/tehran/real-estate"></a>
+                            <p>${element.title} </p></a><i class="breadcrumbs__icon"><img
+                                    src="<%=require( "./icons/svgs/chevron-left.svg"  ).default%>" /></i>
+                        </li>` + temp
+            });
+            if (data["sections"][8]["widgets"][5]["data"]["items"][0].avalible == false) {
+                document.getElementById("elevator").children.forEach(element => {
+                    element.style.color = rgba(0, 0, 0, .32);
+                });
+            }
+            if (data["sections"][8]["widgets"][5]["data"]["items"][1].avalible == false) {
+                document.getElementById("parking").children.forEach(element => {
+                    element.style.color = rgba(0, 0, 0, .32);
+                });
+            }
+            if (data["sections"][8]["widgets"][5]["data"]["items"][2].avalible == false) {
+                document.getElementById("warehouse").children.forEach(element => {
+                    element.style.color = rgba(0, 0, 0, .32);
+                });
+            }
+            data["sections"][8]["widgets"].forEach(element => {
+                // console.log(element)
+                if (element.widget_type == "UNEXPANDABLE_ROW") {
+                    console.log(element)
+                    let temp = document.getElementById("unexpectable").innerHTML;
+                    document.getElementById("unexpectable").innerHTML = `<div class="post-inline-feature"> <p class="post-inline-feature__title">
+                         ${element['data']['title']}
+                            </p>
+                            <p class="post-inline-feature__value" id="totalPrice">
+                                ${element['data']['value']}
+                            </p></div> <hr class="single-post__divider">` + temp
+                }
+
+            });
+            const images = data["sections"][0]["widgets"][0]["data"]["items"]
+            if (Array.isArray(images)) {
+                images.forEach((element, index) => {
+                    document.getElementById("slideshow").innerHTML += `<div class="slideshow__slides fade">
+                                <img src="${element["image"].url}" class="slideshow__img">
+                            </div>`
+
+                    document.getElementById("dots").innerHTML += `  <span class="slideshow-dots__dot" onclick="currentSlide(${index})"></span>
+                            `
+                    if (index < 6) {
+                        document.getElementById("thumbnail").innerHTML += `  <img class="post-image__single-image"
+                                    src="${element["image"].url}" alt="" currentSlide(${index}>`
+                    }
+                });
+                if (images.length < 1) {
+                    document.getElementById("slideshow").innerHTML += ` <a class="slideshow__arrow slideshow__arrow--next" onclick="plusSlides(-1)">❮</a>
+                            <a class="slideshow__arrow slideshow__arrow--prev" onclick="plusSlides(1)">❯</a>`
+
+                }
+                showSlides(0);
+            } else {
+
+            }
+
+        })
+</script>
 
 </html>

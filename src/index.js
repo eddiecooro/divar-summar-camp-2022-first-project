@@ -43,7 +43,7 @@ document.getElementById("megamenu-button").addEventListener("click", megamenuCli
 //     }
 
 // });
-fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
+fetch("http://localhost:9000/api/v8/web-search/2/ROOT", {
     "headers": {
       "accept": "application/json, text/plain, */*",
       "accept-language": "en-US,en;q=0.9",
@@ -96,7 +96,7 @@ fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
       if (typeof images != 'string') {
         src1 = images[0]["src"];
         src2 = images[1]["src"];
-        document.getElementById("browse").innerHTML += ` <a href="single-post.html" class="post no-link-style">
+        document.getElementById("browse").innerHTML += ` <a href="single-post.html?token=${element["data"]["token"]}" class="post no-link-style">
                 <div class="post__body">
                   <h3 class="post__title">${element["data"]["title"]}</h3>
                   <p class="post__price">${element["data"]["top_description_text"]}</p>
@@ -132,6 +132,12 @@ fetch("http://localhost:9000/api/v8/web-search/1/ROOT", {
   });;
 // fetch("http://localhost:9000/api/v8/web-search/1/ROOT").then((response) => console.log(response))
 //     .then((data) => console.log(data));
-document.getElementsByClassName("post").addEventListener("click", element => {
-  console.log("hi");
-});
+// document..addEventListener("click", element => {
+//   const url = window.location.href; // 'https://stacksnippets.net/js'
+//   const params = url.split('/'); // ['https', '', 'stacksnippets.net', 'js']
+//   const parameter = params[params.length-1]; // 'js'
+
+//   const page2 = "https://www.example.com/" +parameter; // 'https://www.example.com/js'
+//   alert("Going to new page: " +page2);
+//   window.location.href = page2 // Go to page2 url
+// });
